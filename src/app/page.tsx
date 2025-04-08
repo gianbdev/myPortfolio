@@ -5,6 +5,36 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { 
+  FaLaravel, 
+  FaJava, 
+  FaNodeJs, 
+  FaPhp,
+  FaAws,
+  FaDocker,
+  FaGitAlt
+} from "react-icons/fa";
+import { 
+  SiSpringboot, 
+  SiMysql, 
+  SiPostgresql, 
+  SiKubernetes,
+  SiRabbitmq,
+  SiRedis,
+  SiGraphql,
+  SiGithubactions
+} from "react-icons/si";
+import { 
+  Cpu, 
+  Database, 
+  Code, 
+  Cloud,
+  TerminalSquare,
+  GitFork,
+  Server,
+  Cog,
+  Network
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -52,98 +82,200 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Sección de Habilidades Mejorada */}
+        {/* Sección de Habilidades con Iconos */}
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">Laravel Framework</CardTitle>
+              <div className="flex justify-center">
+                <FaLaravel className="w-10 h-10 text-red-500" />
+              </div>
+              <CardTitle className="text-xl mt-2">Laravel Framework</CardTitle>
               <CardDescription>Desarrollo Backend Avanzado</CardDescription>
             </CardHeader>
-            <CardContent className="text-center px-4 pb-6">
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• APIs RESTful optimizadas</li>
-                <li>• Arquitectura MVC y DDD</li>
-                <li>• Autenticación JWT/OAuth2</li>
-                <li>• Integración con servicios AWS</li>
-                <li>• Testing con PHPUnit</li>
+            <CardContent className="px-4 pb-6">
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <Code className="w-4 h-4 text-blue-500" />
+                  APIs RESTful optimizadas
+                </li>
+                <li className="flex items-center gap-2">
+                  <Network className="w-4 h-4 text-blue-500" />
+                  Arquitectura MVC y DDD
+                </li>
+                <li className="flex items-center gap-2">
+                  <Cog className="w-4 h-4 text-blue-500" />
+                  Autenticación JWT/OAuth2
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaAws className="w-4 h-4 text-orange-500" />
+                  Integración con AWS
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaPhp className="w-4 h-4 text-purple-500" />
+                  Testing con PHPUnit
+                </li>
               </ul>
             </CardContent>
           </Card>
           
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">Spring Boot</CardTitle>
+              <div className="flex justify-center">
+                <SiSpringboot className="w-10 h-10 text-green-500" />
+              </div>
+              <CardTitle className="text-xl mt-2">Spring Boot</CardTitle>
               <CardDescription>Ecosistema Java Enterprise</CardDescription>
             </CardHeader>
-            <CardContent className="text-center px-4 pb-6">
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Microservicios con Spring Cloud</li>
-                <li>• Seguridad con Spring Security</li>
-                <li>• ORM con Hibernate/JPA</li>
-                <li>• Configuración con Spring Config</li>
-                <li>• Integración con Kafka/RabbitMQ</li>
+            <CardContent className="px-4 pb-6">
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <Cloud className="w-4 h-4 text-blue-500" />
+                  Microservicios con Spring Cloud
+                </li>
+                <li className="flex items-center gap-2">
+                  <Cog className="w-4 h-4 text-blue-500" />
+                  Seguridad con Spring Security
+                </li>
+                <li className="flex items-center gap-2">
+                  <Database className="w-4 h-4 text-blue-500" />
+                  ORM con Hibernate/JPA
+                </li>
+                <li className="flex items-center gap-2">
+                  <TerminalSquare className="w-4 h-4 text-blue-500" />
+                  Configuración con Spring Config
+                </li>
+                <li className="flex items-center gap-2">
+                  <SiRabbitmq className="w-4 h-4 text-orange-500" />
+                  Integración con Kafka/RabbitMQ
+                </li>
               </ul>
             </CardContent>
           </Card>
           
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">Bases de Datos</CardTitle>
+              <div className="flex justify-center">
+                <Database className="w-10 h-10 text-blue-500" />
+              </div>
+              <CardTitle className="text-xl mt-2">Bases de Datos</CardTitle>
               <CardDescription>Modelado y Optimización</CardDescription>
             </CardHeader>
-            <CardContent className="text-center px-4 pb-6">
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• PostgreSQL y MySQL avanzado</li>
-                <li>• Diseño de esquemas relacionales</li>
-                <li>• Optimización de consultas SQL</li>
-                <li>• Migraciones y versionado</li>
+            <CardContent className="px-4 pb-6">
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <SiPostgresql className="w-4 h-4 text-blue-600" />
+                  PostgreSQL avanzado
+                </li>
+                <li className="flex items-center gap-2">
+                  <SiMysql className="w-4 h-4 text-blue-500" />
+                  MySQL y diseño de esquemas
+                </li>
+                <li className="flex items-center gap-2">
+                  <Cpu className="w-4 h-4 text-blue-500" />
+                  Optimización de consultas SQL
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaGitAlt className="w-4 h-4 text-orange-600" />
+                  Migraciones y versionado
+                </li>
               </ul>
             </CardContent>
           </Card>
           
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">DevOps</CardTitle>
+              <div className="flex justify-center">
+                <FaDocker className="w-10 h-10 text-blue-400" />
+              </div>
+              <CardTitle className="text-xl mt-2">DevOps</CardTitle>
               <CardDescription>CI/CD y Automatización</CardDescription>
             </CardHeader>
-            <CardContent className="text-center px-4 pb-6">
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Docker y Docker Compose</li>
-                <li>• Kubernetes para orquestación</li>
-                <li>• Pipelines con GitHub Actions</li>
-                <li>• Monitoreo con Prometheus/Grafana</li>
+            <CardContent className="px-4 pb-6">
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <FaDocker className="w-4 h-4 text-blue-400" />
+                  Docker y Docker Compose
+                </li>
+                <li className="flex items-center gap-2">
+                  <SiKubernetes className="w-4 h-4 text-blue-500" />
+                  Kubernetes para orquestación
+                </li>
+                <li className="flex items-center gap-2">
+                  <SiGithubactions className="w-4 h-4" />
+                  Pipelines con GitHub Actions
+                </li>
+                <li className="flex items-center gap-2">
+                  <Cloud className="w-4 h-4 text-blue-500" />
+                  Monitoreo con Prometheus/Grafana
+                </li>
               </ul>
             </CardContent>
           </Card>
 
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">Arquitectura</CardTitle>
+              <div className="flex justify-center">
+                <Cog className="w-10 h-10 text-yellow-500" />
+              </div>
+              <CardTitle className="text-xl mt-2">Arquitectura</CardTitle>
               <CardDescription>Patrones y Buenas Prácticas</CardDescription>
             </CardHeader>
-            <CardContent className="text-center px-4 pb-6">
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Diseño de APIs RESTful/gRPC</li>
-                <li>• Event Sourcing y CQRS</li>
-                <li>• Arquitectura Hexagonal</li>
-                <li>• Patrones de microservicios</li>
-                <li>• Caching con Redis</li>
+            <CardContent className="px-4 pb-6">
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <SiGraphql className="w-4 h-4 text-pink-500" />
+                  APIs RESTful/gRPC
+                </li>
+                <li className="flex items-center gap-2">
+                  <Server className="w-4 h-4 text-blue-500" />
+                  Event Sourcing y CQRS
+                </li>
+                <li className="flex items-center gap-2">
+                  <Network className="w-4 h-4 text-blue-500" />
+                  Arquitectura Hexagonal
+                </li>
+                <li className="flex items-center gap-2">
+                  <Cloud className="w-4 h-4 text-blue-500" />
+                  Patrones de microservicios
+                </li>
+                <li className="flex items-center gap-2">
+                  <SiRedis className="w-4 h-4 text-red-500" />
+                  Caching con Redis
+                </li>
               </ul>
             </CardContent>
           </Card>
 
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">Metodologías</CardTitle>
+              <div className="flex justify-center">
+                <GitFork className="w-10 h-10 text-purple-500" />
+              </div>
+              <CardTitle className="text-xl mt-2">Metodologías</CardTitle>
               <CardDescription>Gestión de Proyectos</CardDescription>
             </CardHeader>
-            <CardContent className="text-center px-4 pb-6">
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Scrum y Kanban</li>
-                <li>• Git Flow profesional</li>
-                <li>• Code Reviews</li>
-                <li>• Pair Programming</li>
-                <li>• Documentación técnica</li>
+            <CardContent className="px-4 pb-6">
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-500">📊</span>
+                  Scrum y Kanban
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaGitAlt className="w-4 h-4 text-orange-600" />
+                  Git Flow profesional
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">🔍</span>
+                  Code Reviews
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-yellow-500">👥</span>
+                  Pair Programming
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-500">📝</span>
+                  Documentación técnica
+                </li>
               </ul>
             </CardContent>
           </Card>

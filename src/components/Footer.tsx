@@ -10,7 +10,12 @@ export default function Footer() {
           <div className="space-y-4 text-center md:text-left">
             <h3 className="text-lg font-semibold">Sobre mí</h3>
             <p className="text-sm text-muted-foreground max-w-xs mx-auto md:mx-0">
-              Desarrollador backend especializado en Laravel y Spring Boot, con experiencia en arquitecturas escalables y APIs de alto rendimiento.
+            Desarrollador Backend con más de 2 años de experiencia en aplicaciones web y análisis de datos.
+            Trabajo con frameworks como Spring Boot y Laravel, tengo experiencia en bases de datos SQL,
+            diseñando soluciones eficientes y escalables. He participado en el desarrollo de APIs y la
+            implementación de arquitecturas backend adaptadas a las necesidades del negocio. Me enfoco en
+            crear soluciones tecnológicas que realmente aporten al equipo y a los objetivos del proyecto, y
+            siempre estoy buscando aprender y mejorar mis habilidades.
             </p>
           </div>
 
@@ -68,7 +73,7 @@ export default function Footer() {
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link 
-                href="https://twitter.com/tuusuario" 
+                href="" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
