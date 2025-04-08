@@ -10,7 +10,7 @@ export default function Contact() {
     message: ""
   });
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -18,7 +18,7 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Aquí iría la lógica para enviar el formulario
     console.log("Formulario enviado:", formData);
@@ -104,7 +104,6 @@ export default function Contact() {
                   required
                   rows={5}
                   value={formData.message}
-                  onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700"
                   placeholder="Cuéntame sobre tu proyecto..."
                 ></textarea>
