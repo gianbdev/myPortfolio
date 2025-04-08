@@ -1,6 +1,6 @@
 "use client";
 
-import { Code, Server, Database, Cloud, Cpu, Settings, Terminal } from "lucide-react";
+import { Server, Database, Cloud, Cpu, Settings, Terminal } from "lucide-react";
 
 export default function Services() {
   const services = [

@@ -1,6 +1,6 @@
 "use client";
 
-import { Code, Database, Cpu, Server, TerminalSquare, GitFork, Cloud } from "lucide-react";
+import { Code, Database, Server, TerminalSquare, GitFork, Cloud } from "lucide-react";
 
 const skills = [
   {
