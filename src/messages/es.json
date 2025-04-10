@@ -1,0 +1,26 @@
+{
+  "Navbar": {
+    "appName": "Portfolio",
+    "home": "Inicio",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "Home": {
+    "greeting": "Hola, soy",
+    "title": "Ingeniero de Software",
+    "contactMe": "Contáctame",
+    "viewProjects": "Ver proyectos",
+    "professionalExperience": "Experiencia Profesional",
+    "responsibilities": "Responsabilidades",
+    "keyTechnologies": "Tecnologías Clave",
+    "leadership": "Liderazgo",
+    "leadershipDescription": "Gestión de equipos de practicantes y liderazgo técnico en proyectos.",
+    "methodologies": "Metodologías",
+    "methodologiesList": "Kanban, Git Flow, Code Reviews",
+    "laravelTitle": "Laravel Framework",
+    "laravelDescription": "Desarrollo Backend Avanzado",
+    "laravelFeature1": "APIs RESTful optimizadas"
+  }
+}

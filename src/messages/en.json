@@ -1,0 +1,26 @@
+{
+  "Navbar": {
+    "appName": "Portfolio",
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "Home": {
+    "greeting": "Hi, I'm",
+    "title": "Software Engineer",
+    "contactMe": "Contact me",
+    "viewProjects": "View projects",
+    "professionalExperience": "Professional Experience",
+    "responsibilities": "Responsibilities",
+    "keyTechnologies": "Key Technologies",
+    "leadership": "Leadership",
+    "leadershipDescription": "Management of intern teams and technical leadership in projects.",
+    "methodologies": "Methodologies",
+    "methodologiesList": "Kanban, Git Flow, Code Reviews",
+    "laravelTitle": "Laravel Framework",
+    "laravelDescription": "Advanced Backend Development",
+    "laravelFeature1": "Optimized RESTful APIs"
+  }
+}
