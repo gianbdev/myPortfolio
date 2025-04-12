@@ -112,22 +112,3 @@
 .card-hover-effect {
   @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
 }
-
-/* Agrega esto a tu archivo de estilos */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Efecto de desvanecimiento para la portada */
-.cover-transition {
-  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
-}
-
-/* Estilo para el botón de scroll */
-.scroll-down-button {
-  transition: all 0.3s ease;
-}
-
-.scroll-down-button:hover {
-  transform: scale(1.1);
-}

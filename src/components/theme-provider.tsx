@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect, createContext, useContext } from 'react';
-import { getCookie, setCookie } from 'cookies-next';
+
+import { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 type ThemeContextType = {
@@ -12,28 +12,25 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ 
   children,
-  initialTheme 
+  initialTheme
 }: { 
   children: React.ReactNode;
   initialTheme?: Theme;
 }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Usa el initialTheme si está disponible (desde el servidor)
-    if (initialTheme) return initialTheme;
-    
-    // Lógica solo para cliente
-    if (typeof window !== 'undefined') {
-      return (getCookie('theme') as Theme) ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    }
-    return 'light'; // fallback para SSR
-  });
+  const [theme, setTheme] = useState<Theme>(initialTheme || 'light');
 
   useEffect(() => {
-    // Aplica el tema al documento
+    // Solo se ejecuta en el cliente
+    const savedTheme = localStorage.getItem('theme') as Theme || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(savedTheme);
+  }, []);
+
+  useEffect(() => {
+    // Aplicar el tema al documento
     document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(theme);
-    setCookie('theme', theme, { path: '/' });
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {

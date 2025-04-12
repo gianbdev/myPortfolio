@@ -12,23 +12,6 @@ import { usePathname } from "next/navigation";
 export default function Home() {
   const t = useTranslations("Home");
   const [showContent, setShowContent] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
-
-  // Efecto para manejar el estado inicial según la ruta
-  useEffect(() => {
-    if (pathname === "/") {
-      document.body.style.overflow = 'hidden';
-      setShowContent(false);
-    } else {
-      document.body.style.overflow = '';
-      setShowContent(true);
-    }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [pathname]);
 
   const handleScrollClick = () => {
     setShowContent(true);
@@ -138,7 +121,6 @@ export default function Home() {
 
       {/* Contenido principal */}
       <div 
-        ref={contentRef}
         className={`pt-[90vh] min-h-screen ${!showContent && 'invisible'}`}
       >
         <div className="container px-4 md:px-6 mx-auto py-12 md:py-24 lg:py-32">
