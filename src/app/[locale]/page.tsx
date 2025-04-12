@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import ExperienceSection from "./experience/page";
 import CardsPage from "./cards/page";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const t = useTranslations("Home");
