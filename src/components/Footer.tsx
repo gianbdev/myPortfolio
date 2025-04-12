@@ -3,6 +3,12 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { useTranslations } from "next-intl";
+// Por esto
+interface Link {
+  path: string;
+  label: string;
+  url: string;
+}
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -25,7 +31,7 @@ export default function Footer() {
           <div className="space-y-4 text-center">
             <h3 className="text-lg font-semibold">{t("quickLinks.title")}</h3>
             <nav className="flex flex-col space-y-2">
-              {t.raw("quickLinks.links").map((link: any) => (
+              {t.raw("quickLinks.links").map((link: Link) => (
                 <Link
                   key={link.path}
                   href={link.path}
@@ -41,7 +47,7 @@ export default function Footer() {
           <div className="space-y-4 text-center md:text-right">
             <h3 className="text-lg font-semibold">{t("connect.title")}</h3>
             <div className="flex justify-center md:justify-end space-x-4">
-              {t.raw("connect.socialLinks").map((social: any) => (
+              {t.raw("connect.socialLinks").map((social: Link) => (
                 <Link
                   key={social.url}
                   href={social.url}

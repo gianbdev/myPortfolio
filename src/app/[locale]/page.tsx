@@ -13,7 +13,20 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-const workExperience = (t: any) => [
+// Tipos para las experiencias laborales
+interface Position {
+  title: string;
+  period: string;
+}
+
+interface WorkExperience {
+  company: string;
+  positions: Position[];
+  responsibilities: string[];
+  technologies: string[];
+}
+
+const workExperience = (t: ReturnType<typeof useTranslations<'Home'>>): WorkExperience[] => [
   {
     company: "IBCORP SAC",
     positions: [
