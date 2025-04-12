@@ -1,73 +1,76 @@
-"use client";
-
+"use client"
 import { Server, Database, Cloud, Cpu, Settings, Terminal } from "lucide-react";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function Services() {
+  const t = useTranslations("Services");
+
   const services = [
     {
-      title: "Desarrollo Backend",
+      title: t("webDevelopment.title"),
       icon: <Server className="w-8 h-8 text-blue-500" />,
-      description: "Construcción de APIs robustas y escalables con Laravel, Spring Boot y Node.js. Diseño de arquitecturas limpias y mantenibles.",
+      description: t("webDevelopment.description"),
       features: [
-        "APIs RESTful y GraphQL",
-        "Autenticación JWT/OAuth2",
-        "Microservicios y arquitectura modular",
-        "Integración con servicios externos"
+        t("webDevelopment.details.0"),
+        t("webDevelopment.details.1"),
+        t("webDevelopment.details.2"),
+        t("webDevelopment.details.3")
       ]
     },
     {
-      title: "Diseño de Bases de Datos",
+      title: t("databaseDesign.title"),
       icon: <Database className="w-8 h-8 text-green-500" />,
-      description: "Modelado y optimización de bases de datos relacionales y NoSQL para alto rendimiento.",
+      description: t("databaseDesign.description"),
       features: [
-        "Diseño de esquemas eficientes",
-        "Optimización de consultas SQL",
-        "Migraciones y versionado",
-        "Replicación y sharding"
+        t("databaseDesign.details.0"),
+        t("databaseDesign.details.1"),
+        t("databaseDesign.details.2"),
+        t("databaseDesign.details.3")
       ]
     },
     {
-      title: "DevOps & Cloud",
+      title: t("devOps.title"),
       icon: <Cloud className="w-8 h-8 text-purple-500" />,
-      description: "Implementación de pipelines CI/CD y despliegues en la nube para entornos productivos escalables.",
+      description: t("devOps.description"),
       features: [
-        "Docker y Kubernetes",
-        "GitHub Actions/GitLab CI",
-        "Infraestructura como código",
-        "Monitoreo y alertas"
+        t("devOps.details.0"),
+        t("devOps.details.1"),
+        t("devOps.details.2"),
+        t("devOps.details.3")
       ]
     },
     {
-      title: "Arquitectura de Software",
+      title: t("architecture.title"),
       icon: <Settings className="w-8 h-8 text-yellow-500" />,
-      description: "Diseño de arquitecturas limpias y mantenibles siguiendo mejores prácticas y patrones modernos.",
+      description: t("architecture.description"),
       features: [
-        "Arquitectura Hexagonal/DDD",
-        "Event Sourcing/CQRS",
-        "Patrones de microservicios",
-        "Principios SOLID y CLEAN"
+        t("architecture.details.0"),
+        t("architecture.details.1"),
+        t("architecture.details.2"),
+        t("architecture.details.3")
       ]
     },
     {
-      title: "Consultoría Técnica",
+      title: t("consulting.title"),
       icon: <Terminal className="w-8 h-8 text-red-500" />,
-      description: "Asesoramiento especializado para mejorar procesos de desarrollo y toma de decisiones técnicas.",
+      description: t("consulting.description"),
       features: [
-        "Análisis y optimización de código",
-        "Revisiones de arquitectura",
-        "Mentoría para equipos",
-        "Selección de tecnologías"
+        t("consulting.details.0"),
+        t("consulting.details.1"),
+        t("consulting.details.2"),
+        t("consulting.details.3")
       ]
     },
     {
-      title: "Mantenimiento y Soporte",
+      title: t("support.title"),
       icon: <Cpu className="w-8 h-8 text-cyan-500" />,
-      description: "Soporte continuo para aplicaciones existentes con respuesta rápida y soluciones efectivas.",
+      description: t("support.description"),
       features: [
-        "Corrección de bugs",
-        "Actualizaciones de seguridad",
-        "Mejoras de rendimiento",
-        "Soporte 24/7 disponible"
+        t("support.details.0"),
+        t("support.details.1"),
+        t("support.details.2"),
+        t("support.details.3")
       ]
     }
   ];
@@ -77,10 +80,10 @@ export default function Services() {
       <div className="container px-4 md:px-6 mx-auto max-w-6xl">
         <div className="space-y-6 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Mis <span className="text-blue-600 dark:text-blue-400">Servicios</span>
+            {t("title")} <span className="text-blue-600 dark:text-blue-400">{t("highlight")}</span>
           </h2>
           <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 mx-auto">
-            Soluciones técnicas personalizadas para llevar tus proyectos al siguiente nivel.
+            {t("description")}
           </p>
         </div>
 
@@ -114,14 +117,14 @@ export default function Services() {
 
         <div className="mt-16 text-center">
           <p className="text-lg text-muted-foreground">
-            ¿Necesitas un servicio personalizado o tienes dudas sobre cómo puedo ayudarte?
+            {t("contactPrompt")}
           </p>
-          <a 
+          <Link 
             href="/contact" 
             className="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
-            Contáctame
-          </a>
+            {t("contactButton")}
+          </Link>
         </div>
       </div>
     </section>

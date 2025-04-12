@@ -1,27 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeSwitcher } from "./theme-switcher";
 import { Button } from "./ui/button";
 import { X, Menu } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-export const navLinks = [
-  { name: "Inicio", href: "/" },
-  { name: "Habilidades", href: "/skills" },
-  { name: "Proyectos", href: "/projects" },
-  { name: "Servicios", href: "/services" },
-  { name: "Contacto", href: "/contact" },
-];
-
-export default function Navbar() {
+export default function Navbar({ locale }: { locale: string }) {
+  const t = useTranslations("Navbar");
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const navLinks = [
+    { name: t("home"), href: `/${locale}` },
+    { name: t("skills"), href: `/${locale}/skills` },
+    { name: t("projects"), href: `/${locale}/projects` },
+    { name: t("services"), href: `/${locale}/services` },
+    { name: t("contact"), href: `/${locale}/contact` },
+  ];
+
+  const changeLanguage = (newLocale: string) => {
+    const path = pathname.split("/").slice(2).join("/");
+    router.push(`/${newLocale}/${path}`);
+  };
+
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -30,9 +38,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href={`/${locale}/`} className="flex items-center space-x-2">
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Portfolio
+              {t("appName")}
             </span>
           </Link>
 
@@ -60,14 +68,53 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-2">
+              <Button
+                variant={locale === "en" ? "default" : "outline"}
+                size="sm"
+                onClick={() => changeLanguage("en")}
+                className="h-8"
+              >
+                EN
+              </Button>
+              <Button
+                variant={locale === "es" ? "default" : "outline"}
+                size="sm"
+                onClick={() => changeLanguage("es")}
+                className="h-8"
+              >
+                ES
+              </Button>
+            </div>
+
             <ThemeSwitcher />
           </div>
 
           {/* Mobile controls */}
           <div className="flex md:hidden items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <Button
+                variant={locale === "en" ? "default" : "outline"}
+                size="sm"
+                onClick={() => changeLanguage("en")}
+                className="h-8"
+              >
+                EN
+              </Button>
+              <Button
+                variant={locale === "es" ? "default" : "outline"}
+                size="sm"
+                onClick={() => changeLanguage("es")}
+                className="h-8"
+              >
+                ES
+              </Button>
+            </div>
             <ThemeSwitcher />
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               size="icon"
               className="text-foreground/80 hover:text-blue-400"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -95,8 +142,8 @@ export default function Navbar() {
                       key={link.name}
                       href={link.href}
                       className={`block px-3 py-2 rounded-md text-base font-medium ${
-                        isActive 
-                          ? "bg-blue-500/10 text-blue-500" 
+                        isActive
+                          ? "bg-blue-500/10 text-blue-500"
                           : "text-foreground/80 hover:bg-accent hover:text-blue-400"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}

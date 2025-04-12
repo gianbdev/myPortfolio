@@ -1,6 +1,10 @@
 {
+  "Metadata": {
+    "title": "Portafolio",
+    "description": "Mi portafolio personal"
+  },
   "Navbar": {
-    "appName": "Portfolio",
+    "appName": "Portafolio",
     "home": "Inicio",
     "skills": "Habilidades",
     "projects": "Proyectos",
@@ -18,9 +22,298 @@
     "leadership": "Liderazgo",
     "leadershipDescription": "Gestión de equipos de practicantes y liderazgo técnico en proyectos.",
     "methodologies": "Metodologías",
-    "methodologiesList": "Kanban, Git Flow, Code Reviews",
-    "laravelTitle": "Laravel Framework",
-    "laravelDescription": "Desarrollo Backend Avanzado",
-    "laravelFeature1": "APIs RESTful optimizadas"
+    "methodologiesList": "Kanban, Git Flow, Revisiones de Código",
+    "experience": {
+      "ibcorp": {
+        "position": "Ingeniero de Software y Programador - IT",
+        "period": "Junio 2023 - Marzo 2024",
+        "responsibilities": [
+          "Desarrollo de software a medida para gestión de ventas y logística con Laravel",
+          "Creación de páginas web para servicios de seguros (Backend y Frontend)",
+          "Desarrollo de API REST con JWT, autenticación y roles de usuarios",
+          "Implementación de Jobs, Events y Queues para lógica de negocio",
+          "Uso de SwaggerUI para documentación de APIs",
+          "Gestión de servidores con Cpanel y Hostinger",
+          "Liderazgo en desarrollo de proyectos y modelado de bases de datos",
+          "Gestión de practicantes y metodología Kanban con Github/Jira",
+          "Desarrollo de REST API en Spring Boot con JWT y Spring Security",
+          "Control de versiones con Git/Github"
+        ]
+      },
+      "atirpay": {
+        "position": "Programador Web - Área de Desarrollo",
+        "period": "Abril 2024 - Febrero 2025",
+        "responsibilities": [
+          "Desarrollo de interfaces para Software de Gestión Clínica",
+          "Consumo de API REST",
+          "Creación de componentes modulares con Angular 15",
+          "Implementación de Guards, Interceptores, Servicios y Pipes",
+          "Uso de Tailwind CSS y SCSS para estilos",
+          "Control de versiones con Git/Github"
+        ]
+      }
+    }
+  },
+  "Cards": {
+    "Laravel": {
+      "title": "Framework Laravel",
+      "description": "Desarrollo Backend Avanzado",
+      "api": "APIs RESTful optimizadas",
+      "mvc_ddd": "Arquitectura MVC y DDD",
+      "auth": "Authenticación JWT/OAuth2",
+      "aws": "Integración con AWS",
+      "php_unit": "Pruebas con PHPUnit"
+    },
+    "Spring": {
+      "title": "Framework Spring Boot",
+      "description": "Ecosistema Empresarial Java",
+      "Microservices": "Microservicios con Spring",
+      "Security": "Seguridad con Spring Security",
+      "ORM": "ORM con Hibernate/JPA",
+      "Config": "Configuración con Spring Config",
+      "Integration": "Integración con Kafka/RabbitMQ"
+    },
+    "Database": {
+      "title": "Base de Datos",
+      "description": "Modelado y Optimización",
+      "postgre": "PostgreSQL Avanzado",
+      "mysql": "MySQL y diseño de esquemas",
+      "Optimization": "Optimización de consultas SQL",
+      "migrations": "Migraciones y control de versiones"
+    },
+    "DevOps": {
+      "title": "DevOps",
+      "description": "CI/CD y Automatización",
+      "docker": "Docker y Docker Compose",
+      "kubernetes": "Kubernetes para orquestación",
+      "pipeslines": "Pipelines CI/CD con GitHub Actions",
+      "monitoring": "Monitoreo con Prometheus/Grafana"
+    },
+    "Architecture": {
+      "title": "Arquitectura",
+      "description": "Patrones y Buenas Prácticas",
+      "RESTful": "APIs RESTful/gRPC",
+      "Events": "Event Sourcing y CQRS",
+      "hexagonal": "Arquitectura Hexagonal",
+      "Patterns": "Patrones de Microservicios",
+      "catching": "Cacheo con Redis"
+    },
+    "MethodologiesFlow": {
+      "title": "Metodologías",
+      "description": "Gestión de proyectos",
+      "types": "Scrum y Kanban",
+      "flow": "Flujo Git Profesional",
+      "Reviews": "Revisiones de Código",
+      "pair": "Pair Programming",
+      "ducs": "Documentación técnica"
+    },
+    "Angular": {
+      "title": "Angular",
+      "description": "Desarrollo Frontend",
+      "components": "Componentes reutilizables",
+      "routing": "Ruteo y Guards",
+      "state": "Gestión de estado con NgRx",
+      "styles": "Estilos responsivos con Tailwind CSS",
+      "pipes": "Pipes y directivas personalizadas",
+      "testing": "Pruebas unitarias con Jasmine/Karma",
+      "interceptors": "Interceptors HTTP para llamadas API",
+      "forms": "Formularios reactivos y validación",
+      "animations": "Animaciones con Angular Animations",
+      "modules": "Carga perezosa y módulos por características",
+      "services": "Servicios e inyección de dependencias",
+      "rxjs": "Programación reactiva con RxJS",
+      "ngrx": "Gestión de estado con NgRx"
+    }
+  },
+  "Skills": {
+    "title": "Mis",
+    "highlight": "Habilidades",
+    "description": "Tecnologías y herramientas que domino y uso habitualmente en mis proyectos.",
+    "Backend": {
+      "title": "Backend"
+    },
+    "Database": {
+      "title": "Base de Datos"
+    },
+    "DevOps": {
+      "title": "DevOps"
+    },
+    "Frontend": {
+      "title": "Frontend"
+    },
+    "Tools": {
+      "title": "Herramientas"
+    },
+    "Methodologies": {
+      "title": "Metodologías"
+    }
+  },
+  "Services": {
+    "title": "Mis",
+    "highlight": "Servicios",
+    "description": "Soluciones técnicas a medida para llevar tus proyectos al siguiente nivel.",
+    "contactPrompt": "¿Necesitas un servicio personalizado o tienes dudas sobre cómo puedo ayudarte?",
+    "contactButton": "Contactame",
+    "webDevelopment": {
+      "title": "Desarrollo Backend",
+      "description": "Construcción de APIs robustas y escalables con Laravel, Spring Boot y Node.js. Diseño de arquitecturas limpias y mantenibles.",
+      "details": [
+        "APIs RESTful y GraphQL",
+        "Autenticación JWT/OAuth2",
+        "Arquitectura de microservicios y modular",
+        "Integración con servicios externos"
+      ]
+    },
+    "databaseDesign": {
+      "title": "Diseño de Bases de Datos",
+      "description": "Modelado y optimización de bases de datos relacionales y NoSQL para alto rendimiento.",
+      "details": [
+        "Diseño eficiente de esquemas",
+        "Optimización de consultas SQL",
+        "Migraciones y control de versiones",
+        "Replicación y particionado"
+      ]
+    },
+    "devOps": {
+      "title": "DevOps y Cloud",
+      "description": "Implementación de pipelines CI/CD y despliegue de entornos de producción escalables en la nube.",
+      "details": [
+        "Docker y Kubernetes",
+        "GitHub Actions / GitLab CI",
+        "Infraestructura como código",
+        "Monitoreo y alertas"
+      ]
+    },
+    "architecture": {
+      "title": "Arquitectura de Software",
+      "description": "Diseño de arquitecturas limpias y mantenibles siguiendo buenas prácticas y patrones modernos.",
+      "details": [
+        "Arquitectura Hexagonal / DDD",
+        "Event Sourcing / CQRS",
+        "Patrones de microservicios",
+        "Principios SOLID y CLEAN"
+      ]
+    },
+    "consulting": {
+      "title": "Consultoría Técnica",
+      "description": "Asesoramiento experto para mejorar procesos de desarrollo y tomar mejores decisiones técnicas.",
+      "details": [
+        "Análisis y optimización de código",
+        "Revisión de arquitecturas",
+        "Mentoría para equipos",
+        "Selección de tecnologías"
+      ]
+    },
+    "support": {
+      "title": "Mantenimiento y Soporte",
+      "description": "Soporte continuo para aplicaciones existentes con respuestas rápidas y soluciones efectivas.",
+      "details": [
+        "Corrección de errores",
+        "Actualizaciones de seguridad",
+        "Mejoras de rendimiento",
+        "Soporte 24/7 disponible"
+      ]
+    }
+  },
+  "Contacts": {
+    "title": "Contáctame",
+    "subtitle": "¿Tienes un proyecto en mente o necesitas asesoramiento técnico? Envíame un mensaje y trabajemos juntos.",
+    "responseTime": "* Responderé en un plazo máximo de 24-48 horas.",
+    "contactInfo": {
+      "email": {
+        "label": "Correo Electrónico",
+        "value": "giancarlosilvagutierrez55@gmail.com"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "value": "+51 987 654 321"
+      },
+      "location": {
+        "label": "Ubicación",
+        "value": "Lima, Perú (Remoto Global)"
+      }
+    },
+    "form": {
+      "name": {
+        "label": "Nombre Completo",
+        "placeholder": "Ingresa tu nombre completo"
+      },
+      "email": {
+        "label": "Correo Electrónico",
+        "placeholder": "Ingresa tu correo electrónico"
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Cuéntame sobre tu proyecto o consulta..."
+      },
+      "submit": "Enviar Mensaje",
+      "validation": {
+        "required": "Este campo es requerido",
+        "email": "Por favor ingresa un correo electrónico válido"
+      }
+    },
+    "socialMedia": {
+      "github": {
+        "label": "GitHub",
+        "url": "https://github.com/tuusuario"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/tuperfil"
+      },
+      "twitter": {
+        "label": "Twitter",
+        "url": "https://twitter.com/tucuenta"
+      }
+    },
+    "successMessage": "¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.",
+    "errorMessage": "Hubo un error al enviar tu mensaje. Por favor inténtalo nuevamente más tarde."
+  },
+  "Footer": {
+    "about": {
+      "title": "Sobre mí",
+      "content": "Desarrollador Backend con más de 2 años de experiencia en aplicaciones web y análisis de datos. Trabajo con frameworks como Spring Boot y Laravel, con experiencia en bases de datos SQL, diseñando soluciones eficientes y escalables. He participado en el desarrollo de APIs y la implementación de arquitecturas backend adaptadas a las necesidades del negocio. Me enfoco en crear soluciones tecnológicas que realmente aporten al equipo y a los objetivos del proyecto, y siempre estoy buscando aprender y mejorar mis habilidades."
+    },
+    "quickLinks": {
+      "title": "Enlaces rápidos",
+      "links": [
+        {
+          "label": "Inicio",
+          "path": "/"
+        },
+        {
+          "label": "Habilidades técnicas",
+          "path": "/skills"
+        },
+        {
+          "label": "Proyectos destacados",
+          "path": "/projects"
+        },
+        {
+          "label": "Contacto profesional",
+          "path": "/contact"
+        }
+      ]
+    },
+    "connect": {
+      "title": "Conéctate conmigo",
+      "responseTime": "Respuesta en 24-48 horas",
+      "socialLinks": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/tuusuario"
+        },
+        {
+          "label": "LinkedIn",
+          "url": "https://linkedin.com/in/tuperfil"
+        },
+        {
+          "label": "Twitter",
+          "url": "https://twitter.com/tucuenta"
+        }
+      ]
+    },
+    "copyright": "© {year} Giancarlo Silva. Todos los derechos reservados.",
+    "builtWith": "Desarrollado con Next.js, Tailwind CSS y TypeScript"
   }
 }

@@ -7,29 +7,32 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { FaLaravel, FaPhp, FaAws, FaDocker, FaGitAlt } from "react-icons/fa";
 import { SiSpringboot, SiMysql, SiPostgresql, SiKubernetes, SiRabbitmq, SiRedis, SiGraphql, SiGithubactions } from "react-icons/si";
-import { Cpu, Database, Code, Cloud, TerminalSquare, GitFork, Server, Cog, Briefcase, Network, Calendar,
-  Users, GitBranch } from "lucide-react";
+import {
+  Cpu, Database, Code, Cloud, TerminalSquare, GitFork, Server, Cog, Briefcase, Network, Calendar,
+  Users, GitBranch
+} from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const workExperience = [
+const workExperience = (t: any) => [
   {
     company: "IBCORP SAC",
     positions: [
       {
-        title: "Ingeniero de Software y Programador - IT",
-        period: "Junio 2023 - Marzo 2024"
+        title: t("experience.ibcorp.position"),
+        period: t("experience.ibcorp.period")
       }
     ],
     responsibilities: [
-      "Desarrollo de software a medida para gestión de ventas y logística con Laravel",
-      "Creación de páginas web para servicios de seguros (Backend y Frontend)",
-      "Desarrollo de API REST con JWT, autenticación y roles de usuarios",
-      "Implementación de Jobs, Events y Queues para lógica de negocio",
-      "Uso de SwaggerUI para documentación de APIs",
-      "Gestión de servidores con Cpanel y Hostinger",
-      "Liderazgo en desarrollo de proyectos y modelado de bases de datos",
-      "Gestión de practicantes y metodología Kanban con Github/Jira",
-      "Desarrollo de REST API en Spring Boot con JWT y Spring Security",
-      "Control de versiones con Git/Github"
+      t("experience.ibcorp.responsibilities.0"),
+      t("experience.ibcorp.responsibilities.1"),
+      t("experience.ibcorp.responsibilities.2"),
+      t("experience.ibcorp.responsibilities.3"),
+      t("experience.ibcorp.responsibilities.4"),
+      t("experience.ibcorp.responsibilities.5"),
+      t("experience.ibcorp.responsibilities.6"),
+      t("experience.ibcorp.responsibilities.7"),
+      t("experience.ibcorp.responsibilities.8"),
+      t("experience.ibcorp.responsibilities.9")
     ],
     technologies: ["Laravel", "Angular", "Spring Boot", "JWT", "MySQL", "Bootstrap", "HTML/CSS/JS", "SwaggerUI", "JPA", "Maven"]
   },
@@ -37,27 +40,30 @@ const workExperience = [
     company: "ATIRPAY SOLUTIONS SAC",
     positions: [
       {
-        title: "Programador Web - Área de Desarrollo",
-        period: "Abril 2024 - Febrero 2025"
+        title: t("experience.atirpay.position"),
+        period: t("experience.atirpay.period")
       }
     ],
     responsibilities: [
-      "Desarrollo de interfaces para Software de Gestión Clínica",
-      "Consumo de API REST",
-      "Creación de componentes modulares con Angular 15",
-      "Implementación de Guards, Interceptores, Servicios y Pipes",
-      "Uso de Tailwind CSS y SCSS para estilos",
-      "Control de versiones con Git/Github"
+      t("experience.atirpay.responsibilities.0"),
+      t("experience.atirpay.responsibilities.1"),
+      t("experience.atirpay.responsibilities.2"),
+      t("experience.atirpay.responsibilities.3"),
+      t("experience.atirpay.responsibilities.4"),
+      t("experience.atirpay.responsibilities.5")
     ],
     technologies: ["Angular 15", "TypeScript", "Tailwind CSS", "SCSS", "Bootstrap", "REST APIs"]
   }
 ];
 
 export default function Home() {
+  const t = useTranslations("Home");
+  const c = useTranslations("Cards");
+  const experience = workExperience(t);
+
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
+    <div className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6 mx-auto">
-        {/* Sección Principal con tu Nombre */}
         <div className="flex flex-col items-center justify-center space-y-8 text-center min-h-[70vh]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,9 +77,9 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-lg md:text-xl text-blue-500 dark:text-blue-400 font-medium"
             >
-              Hola, soy
+              {t("greeting")}
             </motion.p>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -84,7 +90,7 @@ export default function Home() {
                 Giancarlo Silva
               </span>
             </motion.h1>
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -94,9 +100,9 @@ export default function Home() {
               <motion.p
                 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium"
               >
-                Desarrollador Backend
+                {t("title")}
               </motion.p>
-              <motion.span 
+              <motion.span
                 className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
@@ -112,18 +118,13 @@ export default function Home() {
             className="space-x-4"
           >
             <Button asChild variant="default" size="lg">
-              <Link href="/contact">
-                Contáctame <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              <Link href="/contact">{t("contactMe")}<ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/projects">
-                Ver proyectos
-              </Link>
+              <Link href="/projects">{t("viewProjects")}</Link>
             </Button>
           </motion.div>
         </div>
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -134,12 +135,12 @@ export default function Home() {
           <div className="flex items-center mb-8">
             <Briefcase className="w-8 h-8 mr-3 text-blue-500" />
             <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent">
-              Experiencia Profesional
+              {t("professionalExperience")}
             </h2>
           </div>
 
           <div className="space-y-8">
-            {workExperience.map((exp, index) => (
+            {experience.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
@@ -151,15 +152,15 @@ export default function Home() {
                   <div>
                     <h3 className="text-xl font-bold text-foreground">{exp.company}</h3>
                     <div className="mt-2 space-y-2">
-                      {exp.positions.map((pos, i) => (
+                      {exp.positions.map((position, i) => (
                         <div key={i} className="flex items-start">
                           <div className="flex items-center mt-1 mr-3">
                             <Code className="w-4 h-4 mr-1 text-blue-400" />
-                            <span className="text-blue-500">{pos.title}</span>
+                            <span className="text-blue-500">{position.title}</span>
                           </div>
                           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                             <Calendar className="w-3 h-3 mr-1" />
-                            {pos.period}
+                            {position.period}
                           </div>
                         </div>
                       ))}
@@ -170,8 +171,7 @@ export default function Home() {
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <h4 className="font-medium text-foreground/80 mb-3 flex items-center">
-                      <Server className="w-5 h-5 mr-2 text-purple-500" />
-                      Responsabilidades
+                      <Server className="w-5 h-5 mr-2 text-purple-500" /> {t('responsibilities')}
                     </h4>
                     <ul className="space-y-2 pl-1">
                       {exp.responsibilities.map((item, i) => (
@@ -186,15 +186,15 @@ export default function Home() {
                   <div>
                     <h4 className="font-medium text-foreground/80 mb-3 flex items-center">
                       <Cpu className="w-5 h-5 mr-2 text-green-500" />
-                      Tecnologías Clave
+                      {t('keyTechnologies')}
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, i) => (
+                      {exp.technologies.map((technologies, i) => (
                         <span
                           key={i}
                           className="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm"
                         >
-                          {tech}
+                          {technologies}
                         </span>
                       ))}
                     </div>
@@ -203,18 +203,18 @@ export default function Home() {
                       <>
                         <h4 className="font-medium text-foreground/80 mt-4 mb-3 flex items-center">
                           <Users className="w-5 h-5 mr-2 text-yellow-500" />
-                          Liderazgo
+                          {t('leadership')}
                         </h4>
                         <p className="text-gray-600 dark:text-gray-300">
-                          Gestión de equipos de practicantes y liderazgo técnico en proyectos.
+                          {t('leadershipDescription')}
                         </p>
 
                         <h4 className="font-medium text-foreground/80 mt-4 mb-3 flex items-center">
                           <GitBranch className="w-5 h-5 mr-2 text-red-500" />
-                          Metodologías
+                          {t('methodologies')}
                         </h4>
                         <p className="text-gray-600 dark:text-gray-300">
-                          Kanban, Git Flow, Code Reviews
+                          {t('methodologiesList')}
                         </p>
                       </>
                     )}
@@ -225,205 +225,211 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Sección de Habilidades con Iconos */}
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          {/* Laravel Card */}
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
               <div className="flex justify-center">
                 <FaLaravel className="w-10 h-10 text-red-500" />
               </div>
-              <CardTitle className="text-xl mt-2">Laravel Framework</CardTitle>
-              <CardDescription>Desarrollo Backend Avanzado</CardDescription>
+              <CardTitle className="text-xl mt-2">{c("Laravel.title")}</CardTitle>
+              <CardDescription>{c("Laravel.description")}</CardDescription>
             </CardHeader>
             <CardContent className="px-4 pb-6">
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <Code className="w-4 h-4 text-blue-500" />
-                  APIs RESTful optimizadas
+                  {c("Laravel.api")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Network className="w-4 h-4 text-blue-500" />
-                  Arquitectura MVC y DDD
+                  {c("Laravel.mvc_ddd")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Cog className="w-4 h-4 text-blue-500" />
-                  Autenticación JWT/OAuth2
+                  {c("Laravel.auth")} 
                 </li>
                 <li className="flex items-center gap-2">
                   <FaAws className="w-4 h-4 text-orange-500" />
-                  Integración con AWS
+                  {c("Laravel.aws")}
                 </li>
                 <li className="flex items-center gap-2">
                   <FaPhp className="w-4 h-4 text-purple-500" />
-                  Testing con PHPUnit
+                  {c("Laravel.php_unit")}
                 </li>
               </ul>
             </CardContent>
           </Card>
 
+          {/* Spring Boot Card */}
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
               <div className="flex justify-center">
                 <SiSpringboot className="w-10 h-10 text-green-500" />
               </div>
-              <CardTitle className="text-xl mt-2">Spring Boot</CardTitle>
-              <CardDescription>Ecosistema Java Enterprise</CardDescription>
+              <CardTitle className="text-xl mt-2">{c("Spring.title")}</CardTitle>
+              <CardDescription>{c("Spring.description")}</CardDescription>
             </CardHeader>
             <CardContent className="px-4 pb-6">
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <Cloud className="w-4 h-4 text-blue-500" />
-                  Microservicios con Spring Cloud
+                  {c("Spring.Microservices")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Cog className="w-4 h-4 text-blue-500" />
-                  Seguridad con Spring Security
+                  {c("Spring.Security")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Database className="w-4 h-4 text-blue-500" />
-                  ORM con Hibernate/JPA
+                  {c("Spring.ORM")}
                 </li>
                 <li className="flex items-center gap-2">
                   <TerminalSquare className="w-4 h-4 text-blue-500" />
-                  Configuración con Spring Config
+                  {c("Spring.Config")}
                 </li>
                 <li className="flex items-center gap-2">
                   <SiRabbitmq className="w-4 h-4 text-orange-500" />
-                  Integración con Kafka/RabbitMQ
+                  {c("Spring.Integration")}
                 </li>
               </ul>
             </CardContent>
           </Card>
 
+          {/* Database Card */}
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
               <div className="flex justify-center">
                 <Database className="w-10 h-10 text-blue-500" />
               </div>
-              <CardTitle className="text-xl mt-2">Bases de Datos</CardTitle>
-              <CardDescription>Modelado y Optimización</CardDescription>
+              <CardTitle className="text-xl mt-2">{c("Database.title")}</CardTitle>
+              <CardDescription>{c("Database.description")}</CardDescription>
             </CardHeader>
             <CardContent className="px-4 pb-6">
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <SiPostgresql className="w-4 h-4 text-blue-600" />
-                  PostgreSQL avanzado
+                  {c("Database.postgre")}
                 </li>
                 <li className="flex items-center gap-2">
                   <SiMysql className="w-4 h-4 text-blue-500" />
-                  MySQL y diseño de esquemas
+                  {c("Database.mysql")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-blue-500" />
-                  Optimización de consultas SQL
+                  {c("Database.Optimization")}
                 </li>
                 <li className="flex items-center gap-2">
                   <FaGitAlt className="w-4 h-4 text-orange-600" />
-                  Migraciones y versionado
+                  {c("Database.migrations")}
                 </li>
               </ul>
             </CardContent>
           </Card>
 
+          {/* DevOps Card */}
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
               <div className="flex justify-center">
                 <FaDocker className="w-10 h-10 text-blue-400" />
               </div>
-              <CardTitle className="text-xl mt-2">DevOps</CardTitle>
-              <CardDescription>CI/CD y Automatización</CardDescription>
+              <CardTitle className="text-xl mt-2">{c("DevOps.title")}</CardTitle>
+              <CardDescription>{c("DevOps.description")}</CardDescription>
             </CardHeader>
             <CardContent className="px-4 pb-6">
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <FaDocker className="w-4 h-4 text-blue-400" />
-                  Docker y Docker Compose
+                  {c("DevOps.docker")}
                 </li>
                 <li className="flex items-center gap-2">
                   <SiKubernetes className="w-4 h-4 text-blue-500" />
-                  Kubernetes para orquestación
+                  {c("DevOps.kubernetes")}
                 </li>
                 <li className="flex items-center gap-2">
                   <SiGithubactions className="w-4 h-4" />
-                  Pipelines con GitHub Actions
+                  {c("DevOps.pipeslines")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Cloud className="w-4 h-4 text-blue-500" />
-                  Monitoreo con Prometheus/Grafana
+                  {c("DevOps.monitoring")}
                 </li>
               </ul>
             </CardContent>
           </Card>
 
+          {/* Architecture Card */}
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
               <div className="flex justify-center">
                 <Cog className="w-10 h-10 text-yellow-500" />
               </div>
-              <CardTitle className="text-xl mt-2">Arquitectura</CardTitle>
-              <CardDescription>Patrones y Buenas Prácticas</CardDescription>
+              <CardTitle className="text-xl mt-2">{c("Architecture.title")}</CardTitle>
+              <CardDescription>{c("Architecture.description")}</CardDescription>
             </CardHeader>
             <CardContent className="px-4 pb-6">
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <SiGraphql className="w-4 h-4 text-pink-500" />
-                  APIs RESTful/gRPC
+                  {c("Architecture.RESTful")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Server className="w-4 h-4 text-blue-500" />
-                  Event Sourcing y CQRS
+                  {c("Architecture.Events")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Network className="w-4 h-4 text-blue-500" />
-                  Arquitectura Hexagonal
+                  {c("Architecture.hexagonal")}
                 </li>
                 <li className="flex items-center gap-2">
                   <Cloud className="w-4 h-4 text-blue-500" />
-                  Patrones de microservicios
+                  {c("Architecture.Patterns")}
                 </li>
                 <li className="flex items-center gap-2">
                   <SiRedis className="w-4 h-4 text-red-500" />
-                  Caching con Redis
+                  {c("Architecture.catching")}
                 </li>
               </ul>
             </CardContent>
           </Card>
 
+          {/* Methodologies Card */}
           <Card className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="text-center">
               <div className="flex justify-center">
                 <GitFork className="w-10 h-10 text-purple-500" />
               </div>
-              <CardTitle className="text-xl mt-2">Metodologías</CardTitle>
-              <CardDescription>Gestión de Proyectos</CardDescription>
+              <CardTitle className="text-xl mt-2">{c("MethodologiesFlow.title")}</CardTitle>
+              <CardDescription>{c("MethodologiesFlow.description")}</CardDescription>
             </CardHeader>
             <CardContent className="px-4 pb-6">
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <span className="text-blue-500">📊</span>
-                  Scrum y Kanban
+                  {c("MethodologiesFlow.types")}
                 </li>
                 <li className="flex items-center gap-2">
                   <FaGitAlt className="w-4 h-4 text-orange-600" />
-                  Git Flow profesional
+                  {c("MethodologiesFlow.flow")}
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-green-500">🔍</span>
-                  Code Reviews
+                  {c("MethodologiesFlow.Reviews")}
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-yellow-500">👥</span>
-                  Pair Programming
+                  {c("MethodologiesFlow.pair")}
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="text-blue-500">📝</span>
-                  Documentación técnica
+                  {c("MethodologiesFlow.ducs")}
                 </li>
               </ul>
             </CardContent>
           </Card>
         </div>
+
       </div>
-    </section>
+    </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface FormData {
   name: string;
@@ -10,6 +11,7 @@ interface FormData {
 }
 
 export default function Contact() {
+  const t = useTranslations("Contacts");
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -26,8 +28,8 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Formulario enviado:", formData);
-    alert("¡Gracias por tu mensaje! Te responderé lo antes posible.");
+    console.log("Form submitted:", formData);
+    alert(t("successMessage"));
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -37,34 +39,34 @@ export default function Contact() {
         <div className="grid gap-12 lg:grid-cols-2">
           <div className="space-y-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              <span className="text-blue-600 dark:text-blue-400">Contáctame</span>
+              <span className="text-blue-600 dark:text-blue-400">{t("title")}</span>
             </h2>
             <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              ¿Tienes un proyecto en mente o necesitas asesoramiento técnico? Envíame un mensaje y trabajemos juntos.
+              {t("subtitle")}
             </p>
             
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <Mail className="mt-1 h-5 w-5 text-blue-500" />
                 <div>
-                  <h3 className="font-medium">Correo Electrónico</h3>
-                  <p className="text-sm text-muted-foreground">giancarlosilvagutierrez55@gmail.com</p>
+                  <h3 className="font-medium">{t("contactInfo.email.label")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("contactInfo.email.value")}</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-4">
                 <Phone className="mt-1 h-5 w-5 text-blue-500" />
                 <div>
-                  <h3 className="font-medium">Teléfono</h3>
-                  <p className="text-sm text-muted-foreground">+51 987 654 321</p>
+                  <h3 className="font-medium">{t("contactInfo.phone.label")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("contactInfo.phone.value")}</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-4">
                 <MapPin className="mt-1 h-5 w-5 text-blue-500" />
                 <div>
-                  <h3 className="font-medium">Ubicación</h3>
-                  <p className="text-sm text-muted-foreground">Lima, Perú (Remoto Global)</p>
+                  <h3 className="font-medium">{t("contactInfo.location.label")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("contactInfo.location.value")}</p>
                 </div>
               </div>
             </div>
@@ -74,7 +76,9 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">Nombre Completo</label>
+                  <label htmlFor="name" className="text-sm font-medium">
+                    {t("form.name.label")}
+                  </label>
                   <input
                     id="name"
                     name="name"
@@ -83,11 +87,13 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700"
-                    placeholder="Tu nombre"
+                    placeholder={t("form.name.placeholder")}
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">Correo Electrónico</label>
+                  <label htmlFor="email" className="text-sm font-medium">
+                    {t("form.email.label")}
+                  </label>
                   <input
                     id="email"
                     name="email"
@@ -96,13 +102,15 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700"
-                    placeholder="tu@email.com"
+                    placeholder={t("form.email.placeholder")}
                   />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">Mensaje</label>
+                <label htmlFor="message" className="text-sm font-medium">
+                  {t("form.message.label")}
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -111,7 +119,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700"
-                  placeholder="Cuéntame sobre tu proyecto..."
+                  placeholder={t("form.message.placeholder")}
                 ></textarea>
               </div>
               
@@ -120,12 +128,12 @@ export default function Contact() {
                 className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
               >
                 <Send className="mr-2 h-4 w-4" />
-                Enviar Mensaje
+                {t("form.submit")}
               </button>
             </form>
             
             <p className="text-xs text-muted-foreground">
-              * Responderé en un plazo máximo de 24-48 horas.
+              {t("responseTime")}
             </p>
           </div>
         </div>

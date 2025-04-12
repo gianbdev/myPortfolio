@@ -1,88 +1,63 @@
+"use client";
+
 import Link from "next/link";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+  const c = useTranslations("Contacts");
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="border-t border-gray-200 dark:border-gray-800 py-12">
       <div className="container px-4 md:px-6 mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Columna 1: Información */}
+          {/* Column 1: About */}
           <div className="space-y-4 text-center md:text-left">
-            <h3 className="text-lg font-semibold">Sobre mí</h3>
+            <h3 className="text-lg font-semibold">{t("about.title")}</h3>
             <p className="text-sm text-muted-foreground max-w-xs mx-auto md:mx-0">
-            Desarrollador Backend con más de 2 años de experiencia en aplicaciones web y análisis de datos.
-            Trabajo con frameworks como Spring Boot y Laravel, tengo experiencia en bases de datos SQL,
-            diseñando soluciones eficientes y escalables. He participado en el desarrollo de APIs y la
-            implementación de arquitecturas backend adaptadas a las necesidades del negocio. Me enfoco en
-            crear soluciones tecnológicas que realmente aporten al equipo y a los objetivos del proyecto, y
-            siempre estoy buscando aprender y mejorar mis habilidades.
+              {t("about.content")}
             </p>
           </div>
 
-          {/* Columna 2: Enlaces rápidos */}
+          {/* Column 2: Quick Links */}
           <div className="space-y-4 text-center">
-            <h3 className="text-lg font-semibold">Enlaces rápidos</h3>
+            <h3 className="text-lg font-semibold">{t("quickLinks.title")}</h3>
             <nav className="flex flex-col space-y-2">
-              <Link 
-                href="/" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto md:mx-0"
-              >
-                Inicio
-              </Link>
-              <Link 
-                href="/skills" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto md:mx-0"
-              >
-                Habilidades técnicas
-              </Link>
-              <Link 
-                href="/projects" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto md:mx-0"
-              >
-                Proyectos destacados
-              </Link>
-              <Link 
-                href="/contact" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto md:mx-0"
-              >
-                Contacto profesional
-              </Link>
+              {t.raw("quickLinks.links").map((link: any) => (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto md:mx-0"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
 
-          {/* Columna 3: Redes sociales */}
+          {/* Column 3: Social Media */}
           <div className="space-y-4 text-center md:text-right">
-            <h3 className="text-lg font-semibold">Conéctate conmigo</h3>
+            <h3 className="text-lg font-semibold">{t("connect.title")}</h3>
             <div className="flex justify-center md:justify-end space-x-4">
-              <Link 
-                href="https://github.com/gianbdev" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link 
-                href="https://www.linkedin.com/in/giancarlo-silva-000a13285/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link 
-                href="" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link 
-                href="mailto:giancarlosilvagutierrez55@gmail.com" 
+              {t.raw("connect.socialLinks").map((social: any) => (
+                <Link
+                  key={social.url}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
+                  aria-label={social.label}
+                >
+                  {social.label === "GitHub" && <Github className="h-5 w-5" />}
+                  {social.label === "LinkedIn" && <Linkedin className="h-5 w-5" />}
+                  {social.label === "Twitter" && <Twitter className="h-5 w-5" />}
+                  {social.label === "Email" && <Mail className="h-5 w-5" />}
+                </Link>
+              ))}
+              <Link
+                href={`mailto:${c("contactInfo.email.value")}`}
                 className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
                 aria-label="Email"
               >
@@ -90,18 +65,18 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-xs text-muted-foreground mt-2">
-              Respuesta en 24-48 horas
+              {t("connect.responseTime")}
             </p>
           </div>
         </div>
 
-        {/* Derechos de autor */}
+        {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Giancarlo Silva - Portfolio Profesional. Todos los derechos reservados.
+            {t("copyright", { year: currentYear })}
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            Desarrollado con Next.js, Tailwind CSS y TypeScript
+            {t("builtWith")}
           </p>
         </div>
       </div>
