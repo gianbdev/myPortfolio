@@ -14,7 +14,6 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    turbopack: true, // Reemplaza experimental.turbo
 };
 
 export default withNextIntl(nextConfig);

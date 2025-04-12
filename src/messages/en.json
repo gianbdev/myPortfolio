@@ -18,13 +18,9 @@
     "viewProjects": "View projects",
     "professionalExperience": "Professional Experience",
     "responsibilities": "Responsibilities",
-    "keyTechnologies": "Key Technologies",
-    "leadership": "Leadership",
-    "leadershipDescription": "Management of intern teams and technical leadership in projects.",
-    "methodologies": "Methodologies",
-    "methodologiesList": "Kanban, Git Flow, Code Reviews",
     "experience": {
       "ibcorp": {
+        "title": "IBCorp",
         "position": "Software Engineer and Programmer - IT",
         "period": "June 2023 - March 2024",
         "responsibilities": [
@@ -38,9 +34,15 @@
           "Intern management and Kanban methodology with Github/Jira",
           "REST API development in Spring Boot with JWT and Spring Security",
           "Version control with Git/Github"
-        ]
+        ],
+        "keyTechnologies": "Key Technologies",
+        "leadership": "Leadership",
+        "leadershipDescription": "Management of intern teams and technical leadership in projects.",
+        "methodologies": "Methodologies",
+        "methodologiesList": "Kanban, Git Flow, Code Reviews"
       },
       "atirpay": {
+        "title": "AtirPay Solutions SAC",
         "position": "Web Programmer - Development Area",
         "period": "April 2024 - February 2025",
         "responsibilities": [

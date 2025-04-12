@@ -1,13 +1,12 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeSwitcher } from "./theme-switcher";
 import { Button } from "./ui/button";
 import { X, Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { ThemeSwitcher } from "./theme-switcher";
 
 export default function Navbar({ locale }: { locale: string }) {
   const t = useTranslations("Navbar");
@@ -24,10 +23,10 @@ export default function Navbar({ locale }: { locale: string }) {
   ];
 
   const changeLanguage = (newLocale: string) => {
-    const path = pathname.split("/").slice(2).join("/");
+    const path = pathname?.split("/").slice(2).join("/");
     router.push(`/${newLocale}/${path}`);
   };
-
+   
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -37,15 +36,8 @@ export default function Navbar({ locale }: { locale: string }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href={`/${locale}/`} className="flex items-center space-x-2">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              {t("appName")}
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex flex-1 justify-center items-center space-x-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
 
@@ -53,8 +45,8 @@ export default function Navbar({ locale }: { locale: string }) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative px-1 py-2 text-sm font-medium transition-colors hover:text-blue-400 ${
-                    isActive ? "text-blue-500" : "text-foreground/80"
+                  className={`relative px-1 py-2 text-sm font-medium transition-colors ${
+                    isActive ? "text-blue-500" : "text-foreground/80 hover:text-blue-400"
                   }`}
                 >
                   {link.name}
@@ -68,55 +60,37 @@ export default function Navbar({ locale }: { locale: string }) {
                 </Link>
               );
             })}
+          </div>
 
+          {/* Right side controls */}
+          <div className="flex items-center space-x-4">
             {/* Language Switcher */}
             <div className="flex items-center space-x-2">
               <Button
-                variant={locale === "en" ? "default" : "outline"}
+                variant={locale === "en" ? "default" : "ghost"}
                 size="sm"
                 onClick={() => changeLanguage("en")}
-                className="h-8"
+                className="h-8 w-12"
               >
                 EN
               </Button>
               <Button
-                variant={locale === "es" ? "default" : "outline"}
+                variant={locale === "es" ? "default" : "ghost"}
                 size="sm"
                 onClick={() => changeLanguage("es")}
-                className="h-8"
+                className="h-8 w-12"
               >
                 ES
               </Button>
             </div>
 
             <ThemeSwitcher />
-          </div>
 
-          {/* Mobile controls */}
-          <div className="flex md:hidden items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Button
-                variant={locale === "en" ? "default" : "outline"}
-                size="sm"
-                onClick={() => changeLanguage("en")}
-                className="h-8"
-              >
-                EN
-              </Button>
-              <Button
-                variant={locale === "es" ? "default" : "outline"}
-                size="sm"
-                onClick={() => changeLanguage("es")}
-                className="h-8"
-              >
-                ES
-              </Button>
-            </div>
-            <ThemeSwitcher />
+            {/* Mobile menu button */}
             <Button
               variant="ghost"
               size="icon"
-              className="text-foreground/80 hover:text-blue-400"
+              className="md:hidden text-foreground/80 hover:text-blue-400"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -134,14 +108,14 @@ export default function Navbar({ locale }: { locale: string }) {
               transition={{ duration: 0.2 }}
               className="md:hidden overflow-hidden"
             >
-              <div className="pt-2 pb-4 space-y-2">
+              <div className="pt-2 pb-4 space-y-1">
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href;
                   return (
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      className={`block px-3 py-3 rounded-md text-base font-medium ${
                         isActive
                           ? "bg-blue-500/10 text-blue-500"
                           : "text-foreground/80 hover:bg-accent hover:text-blue-400"

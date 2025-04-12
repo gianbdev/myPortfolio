@@ -25,6 +25,7 @@
     "methodologiesList": "Kanban, Git Flow, Revisiones de Código",
     "experience": {
       "ibcorp": {
+        "title": "IBCorp",
         "position": "Ingeniero de Software y Programador - IT",
         "period": "Junio 2023 - Marzo 2024",
         "responsibilities": [
@@ -38,9 +39,15 @@
           "Gestión de practicantes y metodología Kanban con Github/Jira",
           "Desarrollo de REST API en Spring Boot con JWT y Spring Security",
           "Control de versiones con Git/Github"
-        ]
+        ],
+        "keyTechnologies": "Technologias Clave",
+        "leadership": "Liderazgo",
+        "leadershipDescription": "Gestión de equipos internos y liderazgo técnico en proyectos",
+        "methodologies": "Metodologias",
+        "methodologiesList": "Kanban, Git Flow, Code Reviews"
       },
       "atirpay": {
+        "title": "Atirpay",
         "position": "Programador Web - Área de Desarrollo",
         "period": "Abril 2024 - Febrero 2025",
         "responsibilities": [

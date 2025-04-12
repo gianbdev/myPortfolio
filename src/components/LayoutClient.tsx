@@ -1,5 +1,4 @@
 "use client";
-
 import { AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "./theme-provider";
 import Navbar from "./Navbar";
@@ -12,7 +11,7 @@ export default function LayoutClient({
 }: {
   children: React.ReactNode;
   locale: string;
-  messages: AbstractIntlMessages; // Importa el tipo de next-intl
+  messages: AbstractIntlMessages;
 }) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>

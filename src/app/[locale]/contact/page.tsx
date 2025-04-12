@@ -3,6 +3,7 @@
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Swal from "sweetalert2";
 
 interface FormData {
   name: string;
@@ -26,11 +27,50 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert(t("successMessage"));
-    setFormData({ name: "", email: "", message: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Error response:", errorData);
+
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Hubo un problema al enviar el mensaje. Intenta de nuevo.",
+        });
+
+        return;
+      }
+
+      const data = await res.json();
+      console.log("Success:", data);
+
+      Swal.fire({
+        icon: "success",
+        title: "¡Mensaje enviado!",
+        text: "Gracias por contactarme. Te responderé pronto.",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error:", error);
+
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Algo salió mal. Intenta nuevamente más tarde.",
+      });
+    }
   };
 
   return (
@@ -44,7 +84,7 @@ export default function Contact() {
             <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               {t("subtitle")}
             </p>
-            
+
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <Mail className="mt-1 h-5 w-5 text-blue-500" />
@@ -53,7 +93,7 @@ export default function Contact() {
                   <p className="text-sm text-muted-foreground">{t("contactInfo.email.value")}</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4">
                 <Phone className="mt-1 h-5 w-5 text-blue-500" />
                 <div>
@@ -61,7 +101,7 @@ export default function Contact() {
                   <p className="text-sm text-muted-foreground">{t("contactInfo.phone.value")}</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4">
                 <MapPin className="mt-1 h-5 w-5 text-blue-500" />
                 <div>
@@ -71,7 +111,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          
+
           <div className="space-y-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -106,7 +146,7 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">
                   {t("form.message.label")}
@@ -122,7 +162,7 @@ export default function Contact() {
                   placeholder={t("form.message.placeholder")}
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
@@ -131,7 +171,7 @@ export default function Contact() {
                 {t("form.submit")}
               </button>
             </form>
-            
+
             <p className="text-xs text-muted-foreground">
               {t("responseTime")}
             </p>
