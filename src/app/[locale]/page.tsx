@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl";
 import ExperienceSection from "./experience/page";
 import CardsPage from "./cards/page";
 import { useEffect, useState, useRef } from "react";
-import { usePathname } from "next/navigation";
 
 export default function Home() {
   const t = useTranslations("Home");
