@@ -255,15 +255,15 @@
     "socialMedia": {
       "github": {
         "label": "GitHub",
-        "url": "https://github.com/tuusuario"
+        "url": "https://github.com/gianbdev"
       },
       "linkedin": {
         "label": "LinkedIn",
-        "url": "https://linkedin.com/in/tuperfil"
+        "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/"
       },
       "twitter": {
         "label": "Twitter",
-        "url": "https://twitter.com/tucuenta"
+        "url": ""
       }
     },
     "successMessage": "¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.",
@@ -301,15 +301,15 @@
       "socialLinks": [
         {
           "label": "GitHub",
-          "url": "https://github.com/tuusuario"
+          "url": "https://github.com/gianbdev"
         },
         {
           "label": "LinkedIn",
-          "url": "https://linkedin.com/in/tuperfil"
+          "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/"
         },
         {
           "label": "Twitter",
-          "url": "https://twitter.com/tucuenta"
+          "url": ""
         }
       ]
     },
