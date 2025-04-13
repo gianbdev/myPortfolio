@@ -75,7 +75,7 @@ export default function Home() {
       </div>
 
       {/* Sección de Cards */}
-      <div className="pt-16">
+      <div className="pt-16 mb-6">
         <CardsPage />
       </div>
     </div>
