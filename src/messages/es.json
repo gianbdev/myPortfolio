@@ -254,6 +254,7 @@
         "placeholder": "Cuéntame sobre tu proyecto o consulta..."
       },
       "submit": "Enviar Mensaje",
+      "sending": "Enviando...",
       "validation": {
         "required": "Este campo es requerido",
         "email": "Por favor ingresa un correo electrónico válido"

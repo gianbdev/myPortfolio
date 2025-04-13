@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Swal from "sweetalert2";
@@ -18,6 +18,7 @@ export default function Contact() {
     email: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -29,6 +30,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -70,6 +72,8 @@ export default function Contact() {
         title: "Error",
         text: "Algo salió mal. Intenta nuevamente más tarde.",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -165,10 +169,15 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                disabled={isLoading}
+                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50"
               >
-                <Send className="mr-2 h-4 w-4" />
-                {t("form.submit")}
+                {isLoading ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="mr-2 h-4 w-4" />
+                )}
+                {isLoading ? t("form.sending") : t("form.submit")}
               </button>
             </form>
 

@@ -248,7 +248,8 @@
         "label": "Message",
         "placeholder": "Tell me about your project or inquiry..."
       },
-      "submit": "Send Message",
+      "submit": "Send Message", 
+      "sending": "Sending...",
       "validation": {
         "required": "This field is required",
         "email": "Please enter a valid email address"
