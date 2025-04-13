@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { FaLaravel, FaAws, FaPhp, FaGitAlt, FaDocker, FaAngular } from "react-icons/fa";
-import { SiSpringboot, SiRabbitmq, SiPostgresql, SiMysql, SiKubernetes, SiGithubactions, SiGraphql, SiRedis, SiAngular } from "react-icons/si";
+import { SiSpringboot, SiRabbitmq, SiPostgresql, SiMysql, SiKubernetes, SiGithubactions, SiGraphql, SiRedis } from "react-icons/si";
 import { Code, Server, Cpu, Network, Cog, TerminalSquare, Database, Cloud } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
