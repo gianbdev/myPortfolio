@@ -10,8 +10,6 @@ export default function Skills() {
       category: t("Backend.title"),
       icon: <Server className="w-5 h-5" />,
       items: [
-        { name: "Laravel", level: 80 },
-        { name: "Spring Boot", level: 90 },
         { name: "Node.js", level: 80 },
         { name: "PHP", level: 85 },
         { name: "Java", level: 90 }
@@ -22,17 +20,17 @@ export default function Skills() {
       icon: <Database className="w-5 h-5" />,
       items: [
         { name: "MySQL", level: 90 },
-        { name: "PostgreSQL", level: 85 },
-        { name: "SQL Server", level: 90 },
+        { name: "PostgreSQL", level: 65 },
+        { name: "SQL Server", level: 80 },
       ]
     },
     {
       category: t("DevOps.title"),
       icon: <Cloud className="w-5 h-5" />,
       items: [
-        { name: "Docker", level: 85 },
-        { name: "GitHub Actions", level: 80 },
-        { name: "AWS", level: 75 },
+        { name: "Docker", level: 80 },
+        { name: "GitHub Actions", level: 70 },
+        { name: "AWS", level: 65 },
         { name: "Linux", level: 90 }
       ]
     },
@@ -51,9 +49,9 @@ export default function Skills() {
       icon: <TerminalSquare className="w-5 h-5" />,
       items: [
         { name: "Git", level: 90 },
-        { name: "Jira", level: 95 },
-        { name: "Postman", level: 85 },
-        { name: "Swagger", level: 80 }
+        { name: "Jira", level: 85 },
+        { name: "Postman", level: 95 },
+        { name: "Swagger", level: 90 }
       ]
     },
     {
