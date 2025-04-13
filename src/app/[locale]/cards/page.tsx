@@ -1,8 +1,8 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { FaLaravel, FaAws, FaPhp, FaGitAlt, FaDocker } from "react-icons/fa";
-import { SiSpringboot, SiRabbitmq, SiPostgresql, SiMysql, SiKubernetes, SiGithubactions, SiGraphql, SiRedis } from "react-icons/si";
-import { Code, Server, Cpu, Network, Cog, TerminalSquare, Database, Cloud, GitFork } from "lucide-react";
+import { FaLaravel, FaAws, FaPhp, FaGitAlt, FaDocker, FaAngular } from "react-icons/fa";
+import { SiSpringboot, SiRabbitmq, SiPostgresql, SiMysql, SiKubernetes, SiGithubactions, SiGraphql, SiRedis, SiAngular } from "react-icons/si";
+import { Code, Server, Cpu, Network, Cog, TerminalSquare, Database, Cloud } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
 export default function CardsPage() {
@@ -29,6 +29,17 @@ export default function CardsPage() {
         { icon: <Database className="w-4 h-4 text-blue-500" />, text: c("Spring.ORM") },
         { icon: <TerminalSquare className="w-4 h-4 text-blue-500" />, text: c("Spring.Config") },
         { icon: <SiRabbitmq className="w-4 h-4 text-orange-500" />, text: c("Spring.Integration") }
+      ]
+    },
+    {
+      key: "Angular",
+      icon: <FaAngular className="w-10 h-10 text-red-500" />,
+      items: [
+        { icon: <Code className="w-4 h-4 text-red-500" />, text: c("Angular.components") },
+        { icon: <Cog className="w-4 h-4 text-blue-500" />, text: c("Angular.services") },
+        { icon: <TerminalSquare className="w-4 h-4 text-yellow-500" />, text: c("Angular.pipes") },
+        { icon: <Network className="w-4 h-4 text-green-500" />, text: c("Angular.interceptors") },
+        { icon: <Server className="w-4 h-4 text-purple-500" />, text: c("Angular.routing") }
       ]
     },
     {
@@ -62,29 +73,23 @@ export default function CardsPage() {
         { icon: <SiRedis className="w-4 h-4 text-red-500" />, text: c("Architecture.catching") }
       ]
     },
-    {
-      key: "MethodologiesFlow",
-      icon: <GitFork className="w-10 h-10 text-purple-500" />,
-      items: [
-        { icon: <span className="text-blue-500">📊</span>, text: c("MethodologiesFlow.types") },
-        { icon: <FaGitAlt className="w-4 h-4 text-orange-600" />, text: c("MethodologiesFlow.flow") },
-        { icon: <span className="text-green-500">🔍</span>, text: c("MethodologiesFlow.Reviews") },
-        { icon: <span className="text-yellow-500">👥</span>, text: c("MethodologiesFlow.pair") },
-        { icon: <span className="text-blue-500">📝</span>, text: c("MethodologiesFlow.ducs") }
-      ]
-    }
   ];
 
   return (
-    <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4">
       {cardData.map((card) => (
-        <Card key={card.key} className="hover:shadow-lg transition-shadow duration-300">
+        <Card
+          key={card.key}
+          className="hover:shadow-lg transition-shadow duration-300 mb-4 sm:mb-6"
+        >
           <CardHeader className="text-center">
             <div className="flex justify-center">{card.icon}</div>
-            <CardTitle className="text-xl mt-2">{c(`${card.key}.title`)}</CardTitle>
+            <CardTitle className="text-xl mt-2">
+              {c(`${card.key}.title`)}
+            </CardTitle>
             <CardDescription>{c(`${card.key}.description`)}</CardDescription>
           </CardHeader>
-          <CardContent className="px-4 pb-6">
+          <CardContent className="px-4 sm:px-6 pb-6">
             <ul className="space-y-3">
               {card.items.map((item, index) => (
                 <li key={index} className="flex items-center gap-2">

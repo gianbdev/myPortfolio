@@ -26,7 +26,7 @@ export default function Navbar({ locale }: { locale: string }) {
     const path = pathname?.split("/").slice(2).join("/");
     router.push(`/${newLocale}/${path}`);
   };
-   
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -35,12 +35,23 @@ export default function Navbar({ locale }: { locale: string }) {
       className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex flex-1 justify-center items-center space-x-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Left: Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-foreground/80 hover:text-blue-400"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
+
+          {/* Center: Desktop Navigation */}
+          <div className="hidden md:flex flex-1 justify-center space-x-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-
               return (
                 <Link
                   key={link.name}
@@ -62,39 +73,25 @@ export default function Navbar({ locale }: { locale: string }) {
             })}
           </div>
 
-          {/* Right side controls */}
-          <div className="flex items-center space-x-4">
-            {/* Language Switcher */}
-            <div className="flex items-center space-x-2">
-              <Button
-                variant={locale === "en" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => changeLanguage("en")}
-                className="h-8 w-12"
-              >
-                EN
-              </Button>
-              <Button
-                variant={locale === "es" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => changeLanguage("es")}
-                className="h-8 w-12"
-              >
-                ES
-              </Button>
-            </div>
-
-            <ThemeSwitcher />
-
-            {/* Mobile menu button */}
+          {/* Right: Language Switchers + Theme */}
+          <div className="flex items-center space-x-2">
             <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden text-foreground/80 hover:text-blue-400"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              variant={locale === "en" ? "default" : "ghost"}
+              size="sm"
+              onClick={() => changeLanguage("en")}
+              className="h-8 w-12"
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              EN
             </Button>
+            <Button
+              variant={locale === "es" ? "default" : "ghost"}
+              size="sm"
+              onClick={() => changeLanguage("es")}
+              className="h-8 w-12"
+            >
+              ES
+            </Button>
+            <ThemeSwitcher />
           </div>
         </div>
 

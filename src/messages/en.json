@@ -100,31 +100,14 @@
       "Patterns": "Microservices Patterns",
       "catching": "Caching with Redis"
     },
-    "MethodologiesFlow": {
-      "title": "Methodologies",
-      "description": "Project management",
-      "types": "Srum and Kanban",
-      "flow": "Profesional Git Flow",
-      "Reviews": "Code Reviews",
-      "pair": "Pair Programming",
-      "ducs": "Technical documentation"
-    },
     "Angular": {
       "title": "Angular",
       "description": "Frontend Development",
       "components": "Reusable components",
       "routing": "Routing and Guards",
-      "state": "State management with NgRx",
-      "styles": "Responsive styles with Tailwind CSS",
       "pipes": "Custom pipes and directives",
-      "testing": "Unit testing with Jasmine/Karma",
       "interceptors": "HTTP interceptors for API calls",
-      "forms": "Reactive forms and validation",
-      "animations": "Animations with Angular Animations",
-      "modules": "Lazy loading and feature modules",
-      "services": "Services and dependency injection",
-      "rxjs": "Reactive programming with RxJS",
-      "ngrx": "State management with NgRx"
+      "services": "Services and dependency injection"
     }
   },
   "Skills": {

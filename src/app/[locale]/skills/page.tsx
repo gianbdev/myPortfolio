@@ -10,9 +10,10 @@ export default function Skills() {
       category: t("Backend.title"),
       icon: <Server className="w-5 h-5" />,
       items: [
-        { name: "Node.js", level: 80 },
+        { name: "Typescript", level: 50 },
         { name: "PHP", level: 85 },
-        { name: "Java", level: 90 }
+        { name: "Java", level: 90 },
+        { name: "Python", level: 60 }
       ]
     },
     {
@@ -31,7 +32,7 @@ export default function Skills() {
         { name: "Docker", level: 80 },
         { name: "GitHub Actions", level: 70 },
         { name: "AWS", level: 65 },
-        { name: "Linux", level: 90 }
+        { name: "Azure", level: 60 }
       ]
     },
     {
@@ -59,8 +60,8 @@ export default function Skills() {
       icon: <GitFork className="w-5 h-5" />,
       items: [
         { name: "Scrum", level: 85 },
-        { name: "DDD", level: 80 },
         { name: "Kamban", level: 75 },
+        { name: "Git Flow", level: 80 },
         { name: "CI/CD", level: 85 }
       ]
     }

@@ -18,11 +18,6 @@
     "viewProjects": "Ver proyectos",
     "professionalExperience": "Experiencia Profesional",
     "responsibilities": "Responsabilidades",
-    "keyTechnologies": "Tecnologías Clave",
-    "leadership": "Liderazgo",
-    "leadershipDescription": "Gestión de equipos de practicantes y liderazgo técnico en proyectos.",
-    "methodologies": "Metodologías",
-    "methodologiesList": "Kanban, Git Flow, Revisiones de Código",
     "experience": {
       "ibcorp": {
         "title": "IBCorp",
@@ -104,32 +99,15 @@
       "hexagonal": "Arquitectura Hexagonal",
       "Patterns": "Patrones de Microservicios",
       "catching": "Cacheo con Redis"
-    },
-    "MethodologiesFlow": {
-      "title": "Metodologías",
-      "description": "Gestión de proyectos",
-      "types": "Scrum y Kanban",
-      "flow": "Flujo Git Profesional",
-      "Reviews": "Revisiones de Código",
-      "pair": "Pair Programming",
-      "ducs": "Documentación técnica"
-    },
+    }, 
     "Angular": {
       "title": "Angular",
       "description": "Desarrollo Frontend",
       "components": "Componentes reutilizables",
-      "routing": "Ruteo y Guards",
-      "state": "Gestión de estado con NgRx",
-      "styles": "Estilos responsivos con Tailwind CSS",
+      "routing": "Ruteo y Guards",  
       "pipes": "Pipes y directivas personalizadas",
-      "testing": "Pruebas unitarias con Jasmine/Karma",
       "interceptors": "Interceptors HTTP para llamadas API",
-      "forms": "Formularios reactivos y validación",
-      "animations": "Animaciones con Angular Animations",
-      "modules": "Carga perezosa y módulos por características",
-      "services": "Servicios e inyección de dependencias",
-      "rxjs": "Programación reactiva con RxJS",
-      "ngrx": "Gestión de estado con NgRx"
+      "services": "Servicios e inyección de dependencias"
     }
   },
   "Skills": {
