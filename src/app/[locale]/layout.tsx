@@ -1,6 +1,7 @@
 import { getMessages } from "next-intl/server";
 import { getCookie } from 'cookies-next';
 import LayoutClient from "@/components/LayoutClient";
+import { Analytics } from '@vercel/analytics/next';
 import "../globals.css";
 
 export default async function LocaleLayout({ children, params }: {
@@ -17,6 +18,7 @@ export default async function LocaleLayout({ children, params }: {
       <body>
         <LayoutClient locale={locale} messages={messages}>
           {children}
+          <Analytics />
         </LayoutClient>
       </body>
     </html>
