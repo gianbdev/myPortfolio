@@ -5,7 +5,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
 export default function Projects() {
-  const images = ["u1.png", "u2.png", "u3.png", "u4.png", "u5.png", "u6.png"];
+  const images = ["u1.PNG", "u2.PNG", "u3.PNG", "u4.PNG", "u5.PNG", "u6.PNG"];
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: {
@@ -14,6 +14,7 @@ export default function Projects() {
     },
   });
 
+  // line
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6 mx-auto max-w-4xl">
