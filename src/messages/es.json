@@ -99,12 +99,12 @@
       "hexagonal": "Arquitectura Hexagonal",
       "Patterns": "Patrones de Microservicios",
       "catching": "Cacheo con Redis"
-    }, 
+    },
     "Angular": {
       "title": "Angular",
       "description": "Desarrollo Frontend",
       "components": "Componentes reutilizables",
-      "routing": "Ruteo y Guards",  
+      "routing": "Ruteo y Guards",
       "pipes": "Pipes y directivas personalizadas",
       "interceptors": "Interceptors HTTP para llamadas API",
       "services": "Servicios e inyección de dependencias"
@@ -131,73 +131,6 @@
     },
     "Methodologies": {
       "title": "Metodologías"
-    }
-  },
-  "Services": {
-    "title": "Mis",
-    "highlight": "Servicios",
-    "description": "Soluciones técnicas a medida para llevar tus proyectos al siguiente nivel.",
-    "contactPrompt": "¿Necesitas un servicio personalizado o tienes dudas sobre cómo puedo ayudarte?",
-    "contactButton": "Contactame",
-    "webDevelopment": {
-      "title": "Desarrollo Backend",
-      "description": "Construcción de APIs robustas y escalables con Laravel, Spring Boot y Node.js. Diseño de arquitecturas limpias y mantenibles.",
-      "details": [
-        "APIs RESTful y GraphQL",
-        "Autenticación JWT/OAuth2",
-        "Arquitectura de microservicios y modular",
-        "Integración con servicios externos"
-      ]
-    },
-    "databaseDesign": {
-      "title": "Diseño de Bases de Datos",
-      "description": "Modelado y optimización de bases de datos relacionales y NoSQL para alto rendimiento.",
-      "details": [
-        "Diseño eficiente de esquemas",
-        "Optimización de consultas SQL",
-        "Migraciones y control de versiones",
-        "Replicación y particionado"
-      ]
-    },
-    "devOps": {
-      "title": "DevOps y Cloud",
-      "description": "Implementación de pipelines CI/CD y despliegue de entornos de producción escalables en la nube.",
-      "details": [
-        "Docker y Kubernetes",
-        "GitHub Actions / GitLab CI",
-        "Infraestructura como código",
-        "Monitoreo y alertas"
-      ]
-    },
-    "architecture": {
-      "title": "Arquitectura de Software",
-      "description": "Diseño de arquitecturas limpias y mantenibles siguiendo buenas prácticas y patrones modernos.",
-      "details": [
-        "Arquitectura Hexagonal / DDD",
-        "Event Sourcing / CQRS",
-        "Patrones de microservicios",
-        "Principios SOLID y CLEAN"
-      ]
-    },
-    "consulting": {
-      "title": "Consultoría Técnica",
-      "description": "Asesoramiento experto para mejorar procesos de desarrollo y tomar mejores decisiones técnicas.",
-      "details": [
-        "Análisis y optimización de código",
-        "Revisión de arquitecturas",
-        "Mentoría para equipos",
-        "Selección de tecnologías"
-      ]
-    },
-    "support": {
-      "title": "Mantenimiento y Soporte",
-      "description": "Soporte continuo para aplicaciones existentes con respuestas rápidas y soluciones efectivas.",
-      "details": [
-        "Corrección de errores",
-        "Actualizaciones de seguridad",
-        "Mejoras de rendimiento",
-        "Soporte 24/7 disponible"
-      ]
     }
   },
   "Contacts": {
