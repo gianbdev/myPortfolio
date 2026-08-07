@@ -27,10 +27,10 @@ export function ThemeProvider({
   }, []);
 
   useEffect(() => {
-    // Aplicar el tema al documento
     document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(theme);
     localStorage.setItem('theme', theme);
+    document.cookie = `theme=${theme};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
   }, [theme]);
 
   const toggleTheme = () => {

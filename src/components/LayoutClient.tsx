@@ -8,14 +8,16 @@ export default function LayoutClient({
   children,
   locale,
   messages,
+  initialTheme,
 }: {
   children: React.ReactNode;
   locale: string;
   messages: AbstractIntlMessages;
+  initialTheme?: 'light' | 'dark';
 }) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <ThemeProvider>
+      <ThemeProvider initialTheme={initialTheme}>
         <Navbar locale={locale} />
         {children}
         <Footer />
