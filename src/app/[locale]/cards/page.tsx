@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { FaLaravel, FaAws, FaPhp, FaGitAlt, FaDocker, FaAngular } from "react-icons/fa";
-import { SiSpringboot, SiRabbitmq, SiPostgresql, SiMysql, SiKubernetes, SiGithubactions, SiGraphql, SiRedis } from "react-icons/si";
+import { FaDocker, FaAngular } from "react-icons/fa";
+import { SiSpringboot, SiDotnet, SiRabbitmq, SiPostgresql, SiMysql, SiKubernetes, SiGithubactions, SiGraphql, SiRedis } from "react-icons/si";
 import { Code, Server, Cpu, Network, Cog, TerminalSquare, Database, Cloud } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
@@ -10,14 +10,14 @@ export default function CardsPage() {
 
   const cardData = [
     {
-      key: "Laravel",
-      icon: <FaLaravel className="w-10 h-10 text-red-500" />,
+      key: "DotNet",
+      icon: <SiDotnet className="w-10 h-10 text-purple-600" />,
       items: [
-        { icon: <Code className="w-4 h-4 text-blue-500" />, text: c("Laravel.api") },
-        { icon: <Network className="w-4 h-4 text-blue-500" />, text: c("Laravel.mvc_ddd") },
-        { icon: <Cog className="w-4 h-4 text-blue-500" />, text: c("Laravel.auth") },
-        { icon: <FaAws className="w-4 h-4 text-orange-500" />, text: c("Laravel.aws") },
-        { icon: <FaPhp className="w-4 h-4 text-purple-500" />, text: c("Laravel.php_unit") }
+        { icon: <Code className="w-4 h-4 text-blue-500" />, text: c("DotNet.api") },
+        { icon: <Network className="w-4 h-4 text-blue-500" />, text: c("DotNet.architecture") },
+        { icon: <Cog className="w-4 h-4 text-blue-500" />, text: c("DotNet.auth") },
+        { icon: <TerminalSquare className="w-4 h-4 text-purple-500" />, text: c("DotNet.csharp") },
+        { icon: <Database className="w-4 h-4 text-blue-500" />, text: c("DotNet.ef") }
       ]
     },
     {
@@ -48,8 +48,9 @@ export default function CardsPage() {
       items: [
         { icon: <SiPostgresql className="w-4 h-4 text-blue-600" />, text: c("Database.postgre") },
         { icon: <SiMysql className="w-4 h-4 text-blue-500" />, text: c("Database.mysql") },
+        { icon: <Server className="w-4 h-4 text-gray-500" />, text: c("Database.sqlserver") },
         { icon: <Cpu className="w-4 h-4 text-blue-500" />, text: c("Database.Optimization") },
-        { icon: <FaGitAlt className="w-4 h-4 text-orange-600" />, text: c("Database.migrations") }
+        { icon: <SiRedis className="w-4 h-4 text-red-500" />, text: c("Database.migrations") }
       ]
     },
     {
@@ -58,8 +59,9 @@ export default function CardsPage() {
       items: [
         { icon: <FaDocker className="w-4 h-4 text-blue-400" />, text: c("DevOps.docker") },
         { icon: <SiKubernetes className="w-4 h-4 text-blue-500" />, text: c("DevOps.kubernetes") },
-        { icon: <SiGithubactions className="w-4 h-4" />, text: c("DevOps.pipeslines") },
-        { icon: <Cloud className="w-4 h-4 text-blue-500" />, text: c("DevOps.monitoring") }
+        { icon: <SiGithubactions className="w-4 h-4" />, text: c("DevOps.pipelines") },
+        { icon: <Cloud className="w-4 h-4 text-blue-500" />, text: c("DevOps.terraform") },
+        { icon: <Cpu className="w-4 h-4 text-green-500" />, text: c("DevOps.quality") }
       ]
     },
     {
@@ -67,7 +69,7 @@ export default function CardsPage() {
       icon: <Cog className="w-10 h-10 text-yellow-500" />,
       items: [
         { icon: <SiGraphql className="w-4 h-4 text-pink-500" />, text: c("Architecture.RESTful") },
-        { icon: <Server className="w-4 h-4 text-blue-500" />, text: c("Architecture.Events") },
+        { icon: <Code className="w-4 h-4 text-blue-500" />, text: c("Architecture.microfrontends") },
         { icon: <Network className="w-4 h-4 text-blue-500" />, text: c("Architecture.hexagonal") },
         { icon: <Cloud className="w-4 h-4 text-blue-500" />, text: c("Architecture.Patterns") },
         { icon: <SiRedis className="w-4 h-4 text-red-500" />, text: c("Architecture.catching") }

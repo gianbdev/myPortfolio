@@ -10,39 +10,59 @@ export default function Skills() {
       category: t("Backend.title"),
       icon: <Server className="w-5 h-5" />,
       items: [
-        { name: "Typescript", level: 50 },
-        { name: "PHP", level: 85 },
         { name: "Java", level: 90 },
+        { name: "Spring Boot", level: 90 },
+        { name: ".NET Core (C#)", level: 75 },
+        { name: "Node.js", level: 65 },
+        { name: "Laravel (PHP)", level: 75 },
         { name: "Python", level: 60 }
-      ]
-    },
-    {
-      category: t("Database.title"),
-      icon: <Database className="w-5 h-5" />,
-      items: [
-        { name: "MySQL", level: 90 },
-        { name: "PostgreSQL", level: 65 },
-        { name: "SQL Server", level: 80 },
-      ]
-    },
-    {
-      category: t("DevOps.title"),
-      icon: <Cloud className="w-5 h-5" />,
-      items: [
-        { name: "Docker", level: 80 },
-        { name: "GitHub Actions", level: 70 },
-        { name: "AWS", level: 65 },
-        { name: "Azure", level: 60 }
       ]
     },
     {
       category: t("Frontend.title"),
       icon: <Code className="w-5 h-5" />,
       items: [
-        { name: "HTML/CSS", level: 80 },
-        { name: "JavaScript", level: 50 },
-        { name: "Typescript", level: 70 },
-        { name: "Tailwind CSS", level: 85 }
+        { name: "Angular", level: 90 },
+        { name: "TypeScript", level: 85 },
+        { name: "React", level: 60 },
+        { name: "Tailwind CSS", level: 85 },
+        { name: "HTML5/SCSS", level: 80 },
+        { name: "PrimeNG", level: 75 }
+      ]
+    },
+    {
+      category: t("Database.title"),
+      icon: <Database className="w-5 h-5" />,
+      items: [
+        { name: "PostgreSQL", level: 85 },
+        { name: "MySQL", level: 90 },
+        { name: "SQL Server", level: 80 },
+        { name: "Oracle", level: 65 },
+        { name: "Valkey/Redis", level: 70 }
+      ]
+    },
+    {
+      category: t("DevOps.title"),
+      icon: <Cloud className="w-5 h-5" />,
+      items: [
+        { name: "Docker", level: 85 },
+        { name: "Kubernetes (OKE)", level: 80 },
+        { name: "GitLab CI/CD", level: 85 },
+        { name: "Terraform", level: 75 },
+        { name: "OCI", level: 80 },
+        { name: "AWS", level: 65 }
+      ]
+    },
+    {
+      category: t("Testing.title"),
+      icon: <GitFork className="w-5 h-5" />,
+      items: [
+        { name: "JUnit 5", level: 85 },
+        { name: "TestContainers", level: 75 },
+        { name: "Mockito", level: 80 },
+        { name: "Jest", level: 70 },
+        { name: "Playwright", level: 65 },
+        { name: "SonarQube", level: 75 }
       ]
     },
     {
@@ -50,19 +70,11 @@ export default function Skills() {
       icon: <TerminalSquare className="w-5 h-5" />,
       items: [
         { name: "Git", level: 90 },
-        { name: "Jira", level: 85 },
-        { name: "Postman", level: 95 },
-        { name: "Swagger", level: 90 }
-      ]
-    },
-    {
-      category: t("Methodologies.title"),
-      icon: <GitFork className="w-5 h-5" />,
-      items: [
+        { name: "Postman", level: 90 },
+        { name: "Swagger/OpenAPI", level: 85 },
         { name: "Scrum", level: 85 },
-        { name: "Kamban", level: 75 },
-        { name: "Git Flow", level: 80 },
-        { name: "CI/CD", level: 85 }
+        { name: "Kanban", level: 80 },
+        { name: "Nx Monorepo", level: 70 }
       ]
     }
   ];

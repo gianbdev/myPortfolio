@@ -13,58 +13,83 @@
   },
   "Home": {
     "greeting": "Hola, soy",
-    "title": "Ingeniero de Software",
+    "title": "Analista Programador · Ingeniero de Software",
     "contactMe": "Contáctame",
     "viewProjects": "Ver proyectos",
     "professionalExperience": "Experiencia Profesional",
     "responsibilities": "Responsabilidades",
+    "technologies": "Tecnologías",
     "experience": {
-      "ibcorp": {
-        "title": "IBCorp",
-        "position": "Ingeniero de Software y Programador - IT",
-        "period": "Junio 2023 - Marzo 2024",
+      "silhercorp": {
+        "title": "Silher Corp",
+        "position": "Analista Programador Corporativo TI",
+        "period": "Abril 2026 - Presente",
         "responsibilities": [
-          "Desarrollo de software a medida para gestión de ventas y logística con Laravel",
-          "Creación de páginas web para servicios de seguros (Backend y Frontend)",
-          "Desarrollo de API REST con JWT, autenticación y roles de usuarios",
-          "Implementación de Jobs, Events y Queues para lógica de negocio",
-          "Uso de SwaggerUI para documentación de APIs",
-          "Gestión de servidores con Cpanel y Hostinger",
-          "Liderazgo en desarrollo de proyectos y modelado de bases de datos",
-          "Gestión de practicantes y metodología Kanban con Github/Jira",
-          "Desarrollo de REST API en Spring Boot con JWT y Spring Security",
-          "Control de versiones con Git/Github"
+          "Desarrollo fullstack de plataforma corporativa multi-producto (HREPS, SIGNIA, KURA) bajo estándar regulatorio GAMP5 Categoría 4",
+          "Construcción de microservicios backend con Java 21 + Spring Boot 4, arquitectura hexagonal estricta, PostgreSQL, RabbitMQ y caché con Valkey/Redis",
+          "Desarrollo de microfrontends Angular 21 con Module Federation, PrimeNG y Tailwind CSS en monorepo Nx",
+          "Implementación de pipelines CI/CD multi-etapa en GitLab: validación, tests (JUnit, TestContainers, ArchUnit), SonarQube, build Docker, deploy Helm a OKE",
+          "Infraestructura como código con Terraform en OCI (OKE, OCIR, VCN, Object Storage, KMS)",
+          "Cobertura de tests al 100% con JaCoCo (backend) y Jest/Playwright (frontend)"
         ],
-        "keyTechnologies": "Technologias Clave",
-        "leadership": "Liderazgo",
-        "leadershipDescription": "Gestión de equipos internos y liderazgo técnico en proyectos",
-        "methodologies": "Metodologias",
-        "methodologiesList": "Kanban, Git Flow, Code Reviews"
+        "technologies": ["Java 21", "Spring Boot 4", "Angular 21", "PostgreSQL", "RabbitMQ", "Docker", "Kubernetes", "Terraform", "GitLab CI/CD"]
+      },
+      "hiper": {
+        "title": "HIPER SA",
+        "position": "Programador Java I",
+        "period": "Noviembre 2025 - Febrero 2026",
+        "responsibilities": [
+          "Diseño e implementación de mejoras en plataforma web de administración de terminales POS",
+          "Desarrollo de microservicios con Java 8/11 + Spring Boot, integrando mensajería asíncrona con Apache Kafka",
+          "Construcción de interfaces con Angular 17 y ejecución de pruebas de carga en endpoints críticos",
+          "Contenerización de servicios con Docker y despliegue en servidores corporativos con SQL Server"
+        ],
+        "technologies": ["Java 8/11", "Spring Boot", "Angular 17", "Apache Kafka", "Docker", "SQL Server"]
+      },
+      "zytrust": {
+        "title": "Zytrust SA",
+        "position": "Ingeniero de Software Junior",
+        "period": "Julio 2025 - Octubre 2025",
+        "responsibilities": [
+          "Desarrollo de microservicios backend con Java 8 + Spring Boot e integración de servicios REST y SOAP",
+          "Implementación de reportes dinámicos con JasperReports para documentación regulatoria",
+          "Desarrollo de interfaces con Angular 17 y Angular Material; despliegues en DEV, QA y Producción"
+        ],
+        "technologies": ["Java 8", "Spring Boot", "Angular 17", "Angular Material", "JasperReports"]
       },
       "atirpay": {
-        "title": "Atirpay",
-        "position": "Programador Web - Área de Desarrollo",
-        "period": "Abril 2024 - Febrero 2025",
+        "title": "Atirpay Solutions SAC",
+        "position": "Desarrollador Web",
+        "period": "Abril 2024 - Mayo 2025",
         "responsibilities": [
-          "Desarrollo de interfaces para Software de Gestión Clínica",
-          "Consumo de API REST",
-          "Creación de componentes modulares con Angular 15",
-          "Implementación de Guards, Interceptores, Servicios y Pipes",
-          "Uso de Tailwind CSS y SCSS para estilos",
-          "Control de versiones con Git/Github"
-        ]
+          "Desarrollo y mantenimiento de interfaces para software clínico con Angular 15, SCSS, Bootstrap y Tailwind CSS",
+          "Arquitectura modular frontend (guards, interceptors, servicios, pipes); backend en .NET Core (C#)",
+          "Módulos de ventas, compras y gestión de materiales con integración frontend–backend vía APIs REST"
+        ],
+        "technologies": ["Angular 15", "TypeScript", ".NET Core", "C#", "Tailwind CSS", "SCSS", "Bootstrap", "REST APIs"]
+      },
+      "ibcorp": {
+        "title": "IBCorp SAC",
+        "position": "Programador Web — IT",
+        "period": "Junio 2023 - Enero 2024",
+        "responsibilities": [
+          "Desarrollo de soluciones web para seguros y herramientas internas de RRHH con Spring Boot, Laravel y Node.js",
+          "Implementación de seguridad con JWT + Spring Security; lógica de negocio en Laravel (Middlewares, Jobs, Queues)",
+          "Liderazgo de practicantes; gestión de tareas con Kanban, GitHub Projects y Jira"
+        ],
+        "technologies": ["Spring Boot", "Laravel", "Node.js", "JWT", "Spring Security", "MySQL"]
       }
     }
   },
   "Cards": {
-    "Laravel": {
-      "title": "Framework Laravel",
-      "description": "Desarrollo Backend Avanzado",
-      "api": "APIs RESTful optimizadas",
-      "mvc_ddd": "Arquitectura MVC y DDD",
-      "auth": "Authenticación JWT/OAuth2",
-      "aws": "Integración con AWS",
-      "php_unit": "Pruebas con PHPUnit"
+    "DotNet": {
+      "title": ".NET Core",
+      "description": "Desarrollo Backend Empresarial",
+      "api": "APIs RESTful con ASP.NET",
+      "architecture": "Clean Architecture y DDD",
+      "auth": "Autenticación Identity y JWT",
+      "csharp": "Programación Avanzada en C#",
+      "ef": "ORM con Entity Framework Core"
     },
     "Spring": {
       "title": "Framework Spring Boot",
@@ -75,31 +100,6 @@
       "Config": "Configuración con Spring Config",
       "Integration": "Integración con Kafka/RabbitMQ"
     },
-    "Database": {
-      "title": "Base de Datos",
-      "description": "Modelado y Optimización",
-      "postgre": "PostgreSQL Avanzado",
-      "mysql": "MySQL y diseño de esquemas",
-      "Optimization": "Optimización de consultas SQL",
-      "migrations": "Migraciones y control de versiones"
-    },
-    "DevOps": {
-      "title": "DevOps",
-      "description": "CI/CD y Automatización",
-      "docker": "Docker y Docker Compose",
-      "kubernetes": "Kubernetes para orquestación",
-      "pipeslines": "Pipelines CI/CD con GitHub Actions",
-      "monitoring": "Monitoreo con Prometheus/Grafana"
-    },
-    "Architecture": {
-      "title": "Arquitectura",
-      "description": "Patrones y Buenas Prácticas",
-      "RESTful": "APIs RESTful/gRPC",
-      "Events": "Event Sourcing y CQRS",
-      "hexagonal": "Arquitectura Hexagonal",
-      "Patterns": "Patrones de Microservicios",
-      "catching": "Cacheo con Redis"
-    },
     "Angular": {
       "title": "Angular",
       "description": "Desarrollo Frontend",
@@ -108,6 +108,33 @@
       "pipes": "Pipes y directivas personalizadas",
       "interceptors": "Interceptors HTTP para llamadas API",
       "services": "Servicios e inyección de dependencias"
+    },
+    "Database": {
+      "title": "Base de Datos",
+      "description": "Modelado y Optimización",
+      "postgre": "PostgreSQL Avanzado",
+      "mysql": "MySQL y diseño de esquemas",
+      "sqlserver": "SQL Server y Oracle",
+      "Optimization": "Optimización de consultas SQL",
+      "migrations": "Hibernate/JPA y Valkey/Redis"
+    },
+    "DevOps": {
+      "title": "DevOps",
+      "description": "CI/CD e Infraestructura",
+      "docker": "Docker y Docker Compose",
+      "kubernetes": "Orquestación con Kubernetes (OKE)",
+      "pipelines": "CI/CD con GitLab/GitHub Actions",
+      "terraform": "Infraestructura como Código con Terraform",
+      "quality": "Calidad con SonarQube y JaCoCo"
+    },
+    "Architecture": {
+      "title": "Arquitectura",
+      "description": "Patrones y Buenas Prácticas",
+      "RESTful": "APIs RESTful/gRPC",
+      "microfrontends": "Microfrontends (Module Federation)",
+      "hexagonal": "Arquitectura Hexagonal",
+      "Patterns": "Patrones de Microservicios",
+      "catching": "Cacheo con Redis/Valkey"
     }
   },
   "Skills": {
@@ -117,20 +144,20 @@
     "Backend": {
       "title": "Backend"
     },
-    "Database": {
-      "title": "Base de Datos"
-    },
-    "DevOps": {
-      "title": "DevOps"
-    },
     "Frontend": {
       "title": "Frontend"
     },
-    "Tools": {
-      "title": "Herramientas"
+    "Database": {
+      "title": "Base de Datos y Caché"
     },
-    "Methodologies": {
-      "title": "Metodologías"
+    "DevOps": {
+      "title": "DevOps y Cloud"
+    },
+    "Testing": {
+      "title": "Testing y Calidad"
+    },
+    "Tools": {
+      "title": "Herramientas y Métodos"
     }
   },
   "Contacts": {
@@ -144,7 +171,7 @@
       },
       "phone": {
         "label": "Teléfono",
-        "value": "+51 987 654 321"
+        "value": "+51 939 442 331"
       },
       "location": {
         "label": "Ubicación",
@@ -191,7 +218,7 @@
   "Footer": {
     "about": {
       "title": "Sobre mí",
-      "content": "Desarrollador Backend con más de 2 años de experiencia en el desarrollo de aplicaciones web y soluciones en la nube. Trabajo con frameworks como Spring Boot y Laravel, y tengo experiencia en bases de datos SQL. Me especializo en diseñar arquitecturas escalables y eficientes adaptadas a las necesidades del negocio, buscando siempre optimizar el rendimiento. Mi enfoque es crear soluciones tecnológicas que aporten al éxito del equipo y del proyecto, y continuo perfeccionando mis habilidades en nuevas tecnologías."
+      "content": "Ingeniero de Software con +3 años de experiencia en desarrollo fullstack, especializado en arquitecturas de microservicios y microfrontends a escala enterprise. Construyo plataformas corporativas con Angular, Spring Boot y .NET Core bajo metodologías ágiles y estándares regulatorios. Dominio de arquitectura hexagonal, Module Federation, DDD y CI/CD completo en GitLab, con despliegues en Kubernetes (OKE) sobre Oracle Cloud Infrastructure."
     },
     "quickLinks": {
       "title": "Enlaces rápidos",
