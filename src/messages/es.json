@@ -8,17 +8,19 @@
     "home": "Inicio",
     "skills": "Habilidades",
     "projects": "Proyectos",
-    "services": "Servicios",
     "contact": "Contacto"
   },
   "Home": {
     "greeting": "Hola, soy",
-    "title": "Analista Programador · Ingeniero de Software",
+    "title": "Ingeniero de Software",
+    "roles": ["Ingeniero de Software", "Desarrollador Backend", "Desarrollador Fullstack"],
+    "subtitle": "Construyendo microservicios enterprise y plataformas cloud escalables",
     "contactMe": "Contáctame",
     "viewProjects": "Ver proyectos",
     "professionalExperience": "Experiencia Profesional",
     "responsibilities": "Responsabilidades",
     "technologies": "Tecnologías",
+    "fullTime": "Tiempo completo",
     "experience": {
       "silhercorp": {
         "title": "Silher Corp",
@@ -141,23 +143,33 @@
     "title": "Mis",
     "highlight": "Habilidades",
     "description": "Tecnologías y herramientas que domino y uso habitualmente en mis proyectos.",
-    "Backend": {
-      "title": "Backend"
-    },
-    "Frontend": {
-      "title": "Frontend"
-    },
-    "Database": {
-      "title": "Base de Datos y Caché"
-    },
-    "DevOps": {
-      "title": "DevOps y Cloud"
-    },
-    "Testing": {
-      "title": "Testing y Calidad"
-    },
-    "Tools": {
-      "title": "Herramientas y Métodos"
+    "Backend": { "title": "Backend" },
+    "Frontend": { "title": "Frontend" },
+    "Database": { "title": "Base de Datos y Mensajería" },
+    "DevOps": { "title": "Cloud y DevOps" },
+    "Architecture": { "title": "Arquitectura y Seguridad" },
+    "Testing": { "title": "Testing y Herramientas" }
+  },
+  "Projects": {
+    "title": "Proyectos",
+    "highlight": "Destacados",
+    "description": "Proyectos seleccionados de mi experiencia profesional.",
+    "items": {
+      "clinico": {
+        "title": "Software de Gestión Clínica",
+        "description": "Plataforma de gestión clínica completa con módulos de ventas, compras, gestión de materiales y registros de pacientes.",
+        "technologies": ["Angular 15", ".NET Core", "C#", "REST APIs", "Tailwind CSS"]
+      },
+      "corporativa": {
+        "title": "Plataforma Corporativa Multi-Producto",
+        "description": "Plataforma empresarial (HREPS, SIGNIA, KURA) bajo estándar regulatorio GAMP5 Cat. 4 con arquitectura de microservicios y microfrontends.",
+        "technologies": ["Java 21", "Spring Boot 4", "Angular 21", "PostgreSQL", "Kubernetes"]
+      },
+      "pos": {
+        "title": "Gestión de Terminales POS",
+        "description": "Plataforma web para administración y monitoreo de terminales POS con mensajería asíncrona y pruebas de carga.",
+        "technologies": ["Java 11", "Spring Boot", "Angular 17", "Apache Kafka", "Docker"]
+      }
     }
   },
   "Contacts": {
@@ -206,57 +218,35 @@
       "linkedin": {
         "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/"
-      },
-      "twitter": {
-        "label": "Twitter",
-        "url": ""
       }
     },
-    "successMessage": "¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.",
-    "errorMessage": "Hubo un error al enviar tu mensaje. Por favor inténtalo nuevamente más tarde."
+    "alerts": {
+      "successTitle": "¡Mensaje enviado!",
+      "successText": "Gracias por contactarme. Te responderé pronto.",
+      "errorTitle": "Error",
+      "errorText": "Hubo un problema al enviar el mensaje. Por favor intenta de nuevo."
+    }
   },
   "Footer": {
     "about": {
       "title": "Sobre mí",
-      "content": "Ingeniero de Software con +3 años de experiencia en desarrollo fullstack, especializado en arquitecturas de microservicios y microfrontends a escala enterprise. Construyo plataformas corporativas con Angular, Spring Boot y .NET Core bajo metodologías ágiles y estándares regulatorios. Dominio de arquitectura hexagonal, Module Federation, DDD y CI/CD completo en GitLab, con despliegues en Kubernetes (OKE) sobre Oracle Cloud Infrastructure."
+      "content": "Ingeniero de Software con +3 años de experiencia en desarrollo fullstack, especializado en arquitecturas de microservicios y microfrontends a escala enterprise. Construyo plataformas corporativas con Angular, Spring Boot y .NET Core."
     },
     "quickLinks": {
       "title": "Enlaces rápidos",
       "links": [
-        {
-          "label": "Inicio",
-          "path": "/"
-        },
-        {
-          "label": "Habilidades técnicas",
-          "path": "/skills"
-        },
-        {
-          "label": "Proyectos destacados",
-          "path": "/projects"
-        },
-        {
-          "label": "Contacto profesional",
-          "path": "/contact"
-        }
+        { "label": "Inicio", "path": "/" },
+        { "label": "Habilidades", "path": "/skills" },
+        { "label": "Proyectos", "path": "/projects" },
+        { "label": "Contacto", "path": "/contact" }
       ]
     },
     "connect": {
       "title": "Conéctate conmigo",
       "responseTime": "Respuesta en 24-48 horas",
       "socialLinks": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/gianbdev"
-        },
-        {
-          "label": "LinkedIn",
-          "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/"
-        },
-        {
-          "label": "Twitter",
-          "url": ""
-        }
+        { "label": "GitHub", "url": "https://github.com/gianbdev" },
+        { "label": "LinkedIn", "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/" }
       ]
     },
     "copyright": "© {year} Giancarlo Silva. Todos los derechos reservados.",

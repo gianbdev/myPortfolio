@@ -1,6 +1,13 @@
-"use client"
-import { Code, Database, Server, TerminalSquare, GitFork, Cloud } from "lucide-react";
+"use client";
+import { Code, Database, Server, Cloud, Shield, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-50px" },
+};
 
 export default function Skills() {
   const t = useTranslations("Skills");
@@ -8,116 +15,135 @@ export default function Skills() {
   const skills = [
     {
       category: t("Backend.title"),
-      icon: <Server className="w-5 h-5" />,
+      icon: <Server className="w-5 h-5 text-primary" />,
       items: [
-        { name: "Java", level: 90 },
-        { name: "Spring Boot", level: 90 },
-        { name: ".NET Core (C#)", level: 75 },
-        { name: "Node.js", level: 65 },
-        { name: "Laravel (PHP)", level: 75 },
-        { name: "Python", level: 60 }
-      ]
+        "Java 8/11/21",
+        "Spring Boot",
+        "Spring Cloud",
+        ".NET Core (C#)",
+        "Node.js",
+        "Laravel (PHP)",
+        "Python",
+      ],
     },
     {
       category: t("Frontend.title"),
-      icon: <Code className="w-5 h-5" />,
+      icon: <Code className="w-5 h-5 text-primary" />,
       items: [
-        { name: "Angular", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "React", level: 60 },
-        { name: "Tailwind CSS", level: 85 },
-        { name: "HTML5/SCSS", level: 80 },
-        { name: "PrimeNG", level: 75 }
-      ]
+        "Angular 15–21",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "PrimeNG",
+        "Bootstrap",
+        "HTML5/SCSS",
+      ],
     },
     {
       category: t("Database.title"),
-      icon: <Database className="w-5 h-5" />,
+      icon: <Database className="w-5 h-5 text-primary" />,
       items: [
-        { name: "PostgreSQL", level: 85 },
-        { name: "MySQL", level: 90 },
-        { name: "SQL Server", level: 80 },
-        { name: "Oracle", level: 65 },
-        { name: "Valkey/Redis", level: 70 }
-      ]
+        "PostgreSQL",
+        "MySQL",
+        "SQL Server",
+        "Oracle",
+        "Hibernate/JPA",
+        "Valkey/Redis",
+        "RabbitMQ",
+        "Apache Kafka",
+      ],
     },
     {
       category: t("DevOps.title"),
-      icon: <Cloud className="w-5 h-5" />,
+      icon: <Cloud className="w-5 h-5 text-primary" />,
       items: [
-        { name: "Docker", level: 85 },
-        { name: "Kubernetes (OKE)", level: 80 },
-        { name: "GitLab CI/CD", level: 85 },
-        { name: "Terraform", level: 75 },
-        { name: "OCI", level: 80 },
-        { name: "AWS", level: 65 }
-      ]
+        "Docker",
+        "Kubernetes (OKE)",
+        "Helm",
+        "Terraform",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "SonarQube",
+        "OCI",
+        "AWS",
+        "Azure",
+      ],
+    },
+    {
+      category: t("Architecture.title"),
+      icon: <Shield className="w-5 h-5 text-primary" />,
+      items: [
+        "Microservices",
+        "Microfrontends",
+        "Hexagonal",
+        "DDD",
+        "SOLID",
+        "REST",
+        "SOAP",
+        "JWT",
+        "OAuth2",
+        "Spring Security",
+      ],
     },
     {
       category: t("Testing.title"),
-      icon: <GitFork className="w-5 h-5" />,
+      icon: <Wrench className="w-5 h-5 text-primary" />,
       items: [
-        { name: "JUnit 5", level: 85 },
-        { name: "TestContainers", level: 75 },
-        { name: "Mockito", level: 80 },
-        { name: "Jest", level: 70 },
-        { name: "Playwright", level: 65 },
-        { name: "SonarQube", level: 75 }
-      ]
+        "JUnit 5",
+        "Mockito",
+        "TestContainers",
+        "ArchUnit",
+        "JaCoCo",
+        "Playwright",
+        "Jest",
+        "Git",
+        "Postman",
+        "Swagger",
+        "Nx",
+        "Scrum",
+      ],
     },
-    {
-      category: t("Tools.title"),
-      icon: <TerminalSquare className="w-5 h-5" />,
-      items: [
-        { name: "Git", level: 90 },
-        { name: "Postman", level: 90 },
-        { name: "Swagger/OpenAPI", level: 85 },
-        { name: "Scrum", level: 85 },
-        { name: "Kanban", level: 80 },
-        { name: "Nx Monorepo", level: 70 }
-      ]
-    }
   ];
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6 mx-auto max-w-6xl">
-        <div className="space-y-6 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            {t("title")} <span className="text-blue-600 dark:text-blue-400">{t("highlight")}</span>
+    <section className="w-full py-16 md:py-24">
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
+        <motion.div
+          {...fadeInUp}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            {t("title")}{" "}
+            <span className="text-primary">{t("highlight")}</span>
           </h2>
-          <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 mx-auto">
+          <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
             {t("description")}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((skillGroup) => (
-            <div
-              key={skillGroup.category}
-              className="rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow p-6 dark:border-gray-800"
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {skills.map((group, index) => (
+            <motion.div
+              key={group.category}
+              {...fadeInUp}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="p-2 rounded-full bg-blue-100 dark:bg-blue-900/50">
-                  {skillGroup.icon}
-                </div>
-                <h3 className="text-xl font-semibold">{skillGroup.category}</h3>
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="p-2 rounded-lg bg-primary/10">{group.icon}</div>
+                <h3 className="font-semibold text-lg">{group.category}</h3>
               </div>
-
-              <ul className="space-y-3">
-                {skillGroup.items.map((skill) => (
-                  <li key={skill.name} className="flex items-center justify-between">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <div className="w-24 h-2 bg-gray-200 rounded-full dark:bg-gray-800">
-                      <div
-                        className="h-full bg-blue-600 rounded-full dark:bg-blue-400"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </li>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-sm px-3 py-1.5 rounded-full border bg-card text-card-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors"
+                  >
+                    {skill}
+                  </span>
                 ))}
-              </ul>
-            </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

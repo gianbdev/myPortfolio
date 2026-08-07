@@ -1,158 +1,184 @@
 "use client";
-
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { Mail, Phone, MapPin, Loader2, Github, Linkedin } from "lucide-react";
 import Swal from "sweetalert2";
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-50px" },
+};
 
 export default function Contact() {
   const t = useTranslations("Contacts");
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        console.error("Error response:", errorData);
-
+      if (res.ok) {
         Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Hubo un problema al enviar el mensaje. Intenta de nuevo.",
+          icon: "success",
+          title: t("alerts.successTitle"),
+          text: t("alerts.successText"),
+          confirmButtonColor: "hsl(221, 83%, 53%)",
         });
-
-        return;
+        (e.target as HTMLFormElement).reset();
+      } else {
+        throw new Error();
       }
-
-      const data = await res.json();
-      console.log("Success:", data);
-
-      Swal.fire({
-        icon: "success",
-        title: "¡Mensaje enviado!",
-        text: "Gracias por contactarme. Te responderé pronto.",
-      });
-
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Error:", error);
-
+    } catch {
       Swal.fire({
         icon: "error",
-        title: "Error",
-        text: "Algo salió mal. Intenta nuevamente más tarde.",
+        title: t("alerts.errorTitle"),
+        text: t("alerts.errorText"),
+        confirmButtonColor: "hsl(221, 83%, 53%)",
       });
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
+  const contactInfo = [
+    {
+      icon: <Mail className="w-5 h-5" />,
+      label: t("contactInfo.email.label"),
+      value: t("contactInfo.email.value"),
+    },
+    {
+      icon: <Phone className="w-5 h-5" />,
+      label: t("contactInfo.phone.label"),
+      value: t("contactInfo.phone.value"),
+    },
+    {
+      icon: <MapPin className="w-5 h-5" />,
+      label: t("contactInfo.location.label"),
+      value: t("contactInfo.location.value"),
+    },
+  ];
+
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6 mx-auto max-w-6xl">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              <span className="text-blue-600 dark:text-blue-400">{t("title")}</span>
-            </h2>
-            <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              {t("subtitle")}
-            </p>
+    <section className="w-full py-16 md:py-24">
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
+        <motion.div
+          {...fadeInUp}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            {t("title")}
+          </h2>
+          <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
+            {t("subtitle")}
+          </p>
+        </motion.div>
 
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4">
-                <Mail className="mt-1 h-5 w-5 text-blue-500" />
+        <div className="grid gap-12 lg:grid-cols-5">
+          <motion.div
+            {...fadeInUp}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-2 space-y-6"
+          >
+            {contactInfo.map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                  {item.icon}
+                </div>
                 <div>
-                  <h3 className="font-medium">{t("contactInfo.email.label")}</h3>
-                  <p className="text-sm text-muted-foreground">{t("contactInfo.email.value")}</p>
+                  <p className="text-sm font-medium">{item.label}</p>
+                  <p className="text-sm text-muted-foreground">{item.value}</p>
                 </div>
               </div>
+            ))}
 
-              <div className="flex items-start space-x-4">
-                <Phone className="mt-1 h-5 w-5 text-blue-500" />
-                <div>
-                  <h3 className="font-medium">{t("contactInfo.phone.label")}</h3>
-                  <p className="text-sm text-muted-foreground">{t("contactInfo.phone.value")}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <MapPin className="mt-1 h-5 w-5 text-blue-500" />
-                <div>
-                  <h3 className="font-medium">{t("contactInfo.location.label")}</h3>
-                  <p className="text-sm text-muted-foreground">{t("contactInfo.location.value")}</p>
-                </div>
-              </div>
+            <div className="pt-4 flex gap-3">
+              <a
+                href={t("socialMedia.github.url")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href={t("socialMedia.linkedin.url")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
             </div>
-          </div>
 
-          <div className="space-y-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
+            <p className="text-xs text-muted-foreground">
+              {t("responseTime")}
+            </p>
+          </motion.div>
+
+          <motion.div
+            {...fadeInUp}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-3"
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-1.5"
+                  >
                     {t("form.name.label")}
                   </label>
                   <input
+                    type="text"
                     id="name"
                     name="name"
-                    type="text"
                     required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700"
                     placeholder={t("form.name.placeholder")}
+                    className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-1.5"
+                  >
                     {t("form.email.label")}
                   </label>
                   <input
+                    type="email"
                     id="email"
                     name="email"
-                    type="email"
                     required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700"
                     placeholder={t("form.email.placeholder")}
+                    className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
                   />
                 </div>
               </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-1.5"
+                >
                   {t("form.message.label")}
                 </label>
                 <textarea
@@ -160,31 +186,26 @@ export default function Contact() {
                   name="message"
                   required
                   rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700"
                   placeholder={t("form.message.placeholder")}
-                ></textarea>
+                  className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors resize-none"
+                />
               </div>
-
               <button
                 type="submit"
-                disabled={isLoading}
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50"
+                disabled={loading}
+                className="w-full sm:w-auto px-6 py-2.5 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 transition-colors"
               >
-                {isLoading ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                {loading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    {t("form.sending")}
+                  </span>
                 ) : (
-                  <Send className="mr-2 h-4 w-4" />
+                  t("form.submit")
                 )}
-                {isLoading ? t("form.sending") : t("form.submit")}
               </button>
             </form>
-
-            <p className="text-xs text-muted-foreground">
-              {t("responseTime")}
-            </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

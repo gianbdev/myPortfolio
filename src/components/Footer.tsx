@@ -1,41 +1,43 @@
 "use client";
-
 import Link from "next/link";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { useTranslations } from "next-intl";
-// Por esto
-interface Link {
-  path: string;
-  label: string;
-  url: string;
-}
 
 export default function Footer() {
   const t = useTranslations("Footer");
-  const c = useTranslations("Contacts");
-  const currentYear = new Date().getFullYear();
+  const links = t.raw("quickLinks.links") as Array<{
+    label: string;
+    path: string;
+  }>;
+  const socialLinks = t.raw("connect.socialLinks") as Array<{
+    label: string;
+    url: string;
+  }>;
+
+  const socialIcons: Record<string, React.ReactNode> = {
+    GitHub: <Github className="w-5 h-5" />,
+    LinkedIn: <Linkedin className="w-5 h-5" />,
+  };
 
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-800 py-12">
-      <div className="container px-4 md:px-6 mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Column 1: About */}
-          <div className="space-y-4 text-center md:text-left">
-            <h3 className="text-lg font-semibold">{t("about.title")}</h3>
-            <p className="text-sm text-muted-foreground max-w-xs mx-auto md:mx-0">
+    <footer className="border-t">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="font-semibold mb-3">{t("about.title")}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {t("about.content")}
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="space-y-4 text-center">
-            <h3 className="text-lg font-semibold">{t("quickLinks.title")}</h3>
-            <nav className="flex flex-col space-y-2">
-              {t.raw("quickLinks.links").map((link: Link) => (
+          <div className="md:text-center">
+            <h3 className="font-semibold mb-3">{t("quickLinks.title")}</h3>
+            <nav className="space-y-2">
+              {links.map((link) => (
                 <Link
                   key={link.path}
                   href={link.path}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors mx-auto md:mx-0"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -43,47 +45,33 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 3: Social Media */}
-          <div className="space-y-4 text-center md:text-right">
-            <h3 className="text-lg font-semibold">{t("connect.title")}</h3>
-            <div className="flex justify-center md:justify-end space-x-4">
-              {t.raw("connect.socialLinks").map((social: Link) => (
-                <Link
-                  key={social.url}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
-                  aria-label={social.label}
-                >
-                  {social.label === "GitHub" && <Github className="h-5 w-5" />}
-                  {social.label === "LinkedIn" && <Linkedin className="h-5 w-5" />}
-                  {social.label === "Twitter" && <Twitter className="h-5 w-5" />}
-                  {social.label === "Email" && <Mail className="h-5 w-5" />}
-                </Link>
-              ))}
-              <Link
-                href={`mailto:${c("contactInfo.email.value")}`}
-                className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5" />
-              </Link>
-            </div>
-            <p className="text-xs text-muted-foreground mt-2">
+          <div className="md:text-right">
+            <h3 className="font-semibold mb-3">{t("connect.title")}</h3>
+            <p className="text-sm text-muted-foreground mb-4">
               {t("connect.responseTime")}
             </p>
+            <div className="flex gap-3 md:justify-end">
+              {socialLinks
+                .filter((s) => s.url)
+                .map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="p-2 rounded-lg border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-colors"
+                  >
+                    {socialIcons[social.label]}
+                  </a>
+                ))}
+            </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800 text-center">
-          <p className="text-sm text-muted-foreground">
-            {t("copyright", { year: currentYear })}
-          </p>
-          <p className="text-xs text-muted-foreground mt-1">
-            {t("builtWith")}
-          </p>
+        <div className="mt-8 pt-6 border-t text-center text-xs text-muted-foreground">
+          <p>{t("copyright", { year: new Date().getFullYear() })}</p>
+          <p className="mt-1">{t("builtWith")}</p>
         </div>
       </div>
     </footer>

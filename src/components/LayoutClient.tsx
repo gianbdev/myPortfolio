@@ -13,13 +13,13 @@ export default function LayoutClient({
   children: React.ReactNode;
   locale: string;
   messages: AbstractIntlMessages;
-  initialTheme?: 'light' | 'dark';
+  initialTheme?: "light" | "dark";
 }) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ThemeProvider initialTheme={initialTheme}>
         <Navbar locale={locale} />
-        {children}
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </ThemeProvider>
     </NextIntlClientProvider>

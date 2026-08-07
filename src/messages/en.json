@@ -8,17 +8,19 @@
     "home": "Home",
     "skills": "Skills",
     "projects": "Projects",
-    "services": "Services",
     "contact": "Contact"
   },
   "Home": {
     "greeting": "Hi, I'm",
-    "title": "Analyst Programmer · Software Engineer",
+    "title": "Software Engineer",
+    "roles": ["Software Engineer", "Backend Developer", "Fullstack Developer"],
+    "subtitle": "Building enterprise-grade microservices and scalable cloud platforms",
     "contactMe": "Contact me",
     "viewProjects": "View projects",
     "professionalExperience": "Professional Experience",
     "responsibilities": "Responsibilities",
     "technologies": "Technologies",
+    "fullTime": "Full-time",
     "experience": {
       "silhercorp": {
         "title": "Silher Corp",
@@ -141,90 +143,33 @@
     "title": "My",
     "highlight": "Skills",
     "description": "Technologies and tools that I master and use regularly in my projects.",
-    "Backend": {
-      "title": "Backend"
-    },
-    "Frontend": {
-      "title": "Frontend"
-    },
-    "Database": {
-      "title": "Database & Cache"
-    },
-    "DevOps": {
-      "title": "DevOps & Cloud"
-    },
-    "Testing": {
-      "title": "Testing & Quality"
-    },
-    "Tools": {
-      "title": "Tools & Methods"
-    }
+    "Backend": { "title": "Backend" },
+    "Frontend": { "title": "Frontend" },
+    "Database": { "title": "Database & Messaging" },
+    "DevOps": { "title": "Cloud & DevOps" },
+    "Architecture": { "title": "Architecture & Security" },
+    "Testing": { "title": "Testing & Tools" }
   },
-  "Services": {
-    "title": "My",
-    "highlight": "Services",
-    "description": "Tailored technical solutions to take your projects to the next level.",
-    "contactPrompt": "Do you need a custom service or have questions about how I can help you?",
-    "contactButton": "Contact me",
-    "webDevelopment": {
-      "title": "Backend Development",
-      "description": "Building robust and scalable APIs with Spring Boot, .NET Core, and Node.js. Designing clean and maintainable architectures.",
-      "details": [
-        "RESTful and SOAP APIs",
-        "JWT/OAuth2 authentication",
-        "Microservices and hexagonal architecture",
-        "Integration with external services"
-      ]
-    },
-    "databaseDesign": {
-      "title": "Database Design",
-      "description": "Modeling and optimizing relational and NoSQL databases for high performance.",
-      "details": [
-        "Efficient schema design",
-        "SQL query optimization",
-        "Migrations and version control",
-        "Replication and sharding"
-      ]
-    },
-    "devOps": {
-      "title": "DevOps & Cloud",
-      "description": "Implementing CI/CD pipelines and deploying scalable production environments in the cloud.",
-      "details": [
-        "Docker and Kubernetes (OKE)",
-        "GitLab CI/CD / GitHub Actions",
-        "Infrastructure as Code with Terraform",
-        "Monitoring and quality gates"
-      ]
-    },
-    "architecture": {
-      "title": "Software Architecture",
-      "description": "Designing clean and maintainable architectures following best practices and modern patterns.",
-      "details": [
-        "Hexagonal Architecture / DDD",
-        "Microfrontends / Module Federation",
-        "Microservices patterns",
-        "SOLID and CLEAN principles"
-      ]
-    },
-    "consulting": {
-      "title": "Technical Consulting",
-      "description": "Expert advice to improve development processes and make better technical decisions.",
-      "details": [
-        "Code analysis and optimization",
-        "Architecture reviews",
-        "Mentorship for teams",
-        "Technology selection"
-      ]
-    },
-    "support": {
-      "title": "Maintenance & Support",
-      "description": "Continuous support for existing applications with fast response and effective solutions.",
-      "details": [
-        "Bug fixing",
-        "Security updates",
-        "Performance improvements",
-        "24/7 support available"
-      ]
+  "Projects": {
+    "title": "Featured",
+    "highlight": "Projects",
+    "description": "Selected projects from my professional experience.",
+    "items": {
+      "clinico": {
+        "title": "Clinical Management Software",
+        "description": "Full-featured clinical management platform with modules for sales, purchases, materials management and patient records.",
+        "technologies": ["Angular 15", ".NET Core", "C#", "REST APIs", "Tailwind CSS"]
+      },
+      "corporativa": {
+        "title": "Corporate Multi-Product Platform",
+        "description": "Enterprise platform (HREPS, SIGNIA, KURA) under GAMP5 Cat. 4 regulatory standard with microservices and microfrontend architecture.",
+        "technologies": ["Java 21", "Spring Boot 4", "Angular 21", "PostgreSQL", "Kubernetes"]
+      },
+      "pos": {
+        "title": "POS Terminal Management",
+        "description": "Web platform for administration and monitoring of POS terminals with asynchronous messaging and load testing.",
+        "technologies": ["Java 11", "Spring Boot", "Angular 17", "Apache Kafka", "Docker"]
+      }
     }
   },
   "Contacts": {
@@ -273,57 +218,35 @@
       "linkedin": {
         "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/"
-      },
-      "twitter": {
-        "label": "Twitter",
-        "url": ""
       }
     },
-    "successMessage": "Thank you for your message! I'll get back to you soon.",
-    "errorMessage": "There was an error sending your message. Please try again later."
+    "alerts": {
+      "successTitle": "Message sent!",
+      "successText": "Thank you for contacting me. I'll respond soon.",
+      "errorTitle": "Error",
+      "errorText": "There was a problem sending the message. Please try again."
+    }
   },
   "Footer": {
     "about": {
       "title": "About Me",
-      "content": "Software Engineer with 3+ years of experience in fullstack development, specialized in microservices and microfrontend architectures at enterprise scale. I build corporate platforms with Angular, Spring Boot and .NET Core under agile methodologies and regulatory standards. Proficient in hexagonal architecture, Module Federation, DDD and complete CI/CD in GitLab, with deployments on Kubernetes (OKE) over Oracle Cloud Infrastructure."
+      "content": "Software Engineer with 3+ years of experience in fullstack development, specialized in microservices and microfrontend architectures at enterprise scale. Building corporate platforms with Angular, Spring Boot and .NET Core."
     },
     "quickLinks": {
       "title": "Quick Links",
       "links": [
-        {
-          "label": "Home",
-          "path": "/"
-        },
-        {
-          "label": "Technical Skills",
-          "path": "/skills"
-        },
-        {
-          "label": "Featured Projects",
-          "path": "/projects"
-        },
-        {
-          "label": "Professional Contact",
-          "path": "/contact"
-        }
+        { "label": "Home", "path": "/" },
+        { "label": "Skills", "path": "/skills" },
+        { "label": "Projects", "path": "/projects" },
+        { "label": "Contact", "path": "/contact" }
       ]
     },
     "connect": {
       "title": "Connect With Me",
       "responseTime": "Response within 24-48 hours",
       "socialLinks": [
-        {
-          "label": "GitHub",
-          "url": "https://github.com/gianbdev"
-        },
-        {
-          "label": "LinkedIn",
-          "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/"
-        },
-        {
-          "label": "Twitter",
-          "url": ""
-        }
+        { "label": "GitHub", "url": "https://github.com/gianbdev" },
+        { "label": "LinkedIn", "url": "https://www.linkedin.com/in/giancarlo-silva-000a13285/" }
       ]
     },
     "copyright": "© {year} Giancarlo Silva. All rights reserved.",

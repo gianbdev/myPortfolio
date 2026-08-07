@@ -1,37 +1,87 @@
 "use client";
-
 import Image from "next/image";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Code } from "lucide-react";
+
+const projectKeys = ["clinico", "corporativa", "pos"];
+
+const projectImages: Record<string, string | undefined> = {
+  clinico: "/projects/u1.PNG",
+};
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-50px" },
+};
 
 export default function Projects() {
-  const images = ["u1.PNG", "u2.PNG", "u3.PNG", "u4.PNG", "u5.PNG", "u6.PNG"];
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    slides: {
-      perView: 1,
-      spacing: 15,
-    },
-  });
+  const t = useTranslations("Projects");
 
-  // line
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-6 mx-auto max-w-4xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">Software Clínico</h2>
+    <section className="w-full py-16 md:py-24">
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
+        <motion.div
+          {...fadeInUp}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            {t("title")}{" "}
+            <span className="text-primary">{t("highlight")}</span>
+          </h2>
+          <p className="mt-3 text-muted-foreground max-w-lg mx-auto">
+            {t("description")}
+          </p>
+        </motion.div>
 
-        <div ref={sliderRef} className="keen-slider rounded-xl overflow-hidden shadow-lg">
-          {images.map((img, idx) => (
-            <div key={idx} className="keen-slider__slide flex justify-center">
-              <Image
-                src={`/projects/${img}`}
-                alt={`Vista ${idx + 1} del software clínico`}
-                width={800}
-                height={500}
-                className="rounded-xl object-cover"
-              />
-            </div>
-          ))}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projectKeys.map((key, index) => {
+            const image = projectImages[key];
+            return (
+              <motion.div
+                key={key}
+                {...fadeInUp}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="rounded-lg border bg-card overflow-hidden hover:shadow-md transition-shadow"
+              >
+                <div className="aspect-video bg-muted flex items-center justify-center overflow-hidden">
+                  {image ? (
+                    <Image
+                      src={image}
+                      alt={t(`items.${key}.title`)}
+                      width={600}
+                      height={340}
+                      className="object-cover w-full h-full"
+                    />
+                  ) : (
+                    <Code className="w-12 h-12 text-muted-foreground/30" />
+                  )}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-semibold text-lg mb-2">
+                    {t(`items.${key}.title`)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {t(`items.${key}.description`)}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {(
+                      t.raw(`items.${key}.technologies`) as string[]
+                    ).map((tech: string, i: number) => (
+                      <span
+                        key={i}
+                        className="text-xs px-2 py-0.5 rounded-full border bg-secondary text-secondary-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

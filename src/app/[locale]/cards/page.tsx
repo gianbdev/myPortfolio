@@ -1,108 +1,140 @@
 "use client";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import { FaDocker, FaAngular } from "react-icons/fa";
-import { SiSpringboot, SiDotnet, SiRabbitmq, SiPostgresql, SiMysql, SiKubernetes, SiGithubactions, SiGraphql, SiRedis } from "react-icons/si";
-import { Code, Server, Cpu, Network, Cog, TerminalSquare, Database, Cloud } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import {
+  SiSpringboot,
+  SiDotnet,
+  SiRabbitmq,
+  SiPostgresql,
+  SiMysql,
+  SiKubernetes,
+  SiGithubactions,
+  SiGraphql,
+  SiRedis,
+} from "react-icons/si";
+import {
+  Code,
+  Server,
+  Cpu,
+  Network,
+  Cog,
+  TerminalSquare,
+  Database,
+  Cloud,
+} from "lucide-react";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-50px" },
+};
 
 export default function CardsPage() {
-  const c = useTranslations('Cards');
+  const c = useTranslations("Cards");
 
   const cardData = [
     {
       key: "DotNet",
-      icon: <SiDotnet className="w-10 h-10 text-purple-600" />,
+      icon: <SiDotnet className="w-8 h-8 text-purple-600 dark:text-purple-400" />,
       items: [
-        { icon: <Code className="w-4 h-4 text-blue-500" />, text: c("DotNet.api") },
-        { icon: <Network className="w-4 h-4 text-blue-500" />, text: c("DotNet.architecture") },
-        { icon: <Cog className="w-4 h-4 text-blue-500" />, text: c("DotNet.auth") },
-        { icon: <TerminalSquare className="w-4 h-4 text-purple-500" />, text: c("DotNet.csharp") },
-        { icon: <Database className="w-4 h-4 text-blue-500" />, text: c("DotNet.ef") }
-      ]
+        { icon: <Code className="w-4 h-4 text-primary" />, text: c("DotNet.api") },
+        { icon: <Network className="w-4 h-4 text-primary" />, text: c("DotNet.architecture") },
+        { icon: <Cog className="w-4 h-4 text-primary" />, text: c("DotNet.auth") },
+        { icon: <TerminalSquare className="w-4 h-4 text-primary" />, text: c("DotNet.csharp") },
+        { icon: <Database className="w-4 h-4 text-primary" />, text: c("DotNet.ef") },
+      ],
     },
     {
       key: "Spring",
-      icon: <SiSpringboot className="w-10 h-10 text-green-500" />,
+      icon: <SiSpringboot className="w-8 h-8 text-green-600 dark:text-green-400" />,
       items: [
-        { icon: <Cloud className="w-4 h-4 text-blue-500" />, text: c("Spring.Microservices") },
-        { icon: <Cog className="w-4 h-4 text-blue-500" />, text: c("Spring.Security") },
-        { icon: <Database className="w-4 h-4 text-blue-500" />, text: c("Spring.ORM") },
-        { icon: <TerminalSquare className="w-4 h-4 text-blue-500" />, text: c("Spring.Config") },
-        { icon: <SiRabbitmq className="w-4 h-4 text-orange-500" />, text: c("Spring.Integration") }
-      ]
+        { icon: <Cloud className="w-4 h-4 text-primary" />, text: c("Spring.Microservices") },
+        { icon: <Cog className="w-4 h-4 text-primary" />, text: c("Spring.Security") },
+        { icon: <Database className="w-4 h-4 text-primary" />, text: c("Spring.ORM") },
+        { icon: <TerminalSquare className="w-4 h-4 text-primary" />, text: c("Spring.Config") },
+        { icon: <SiRabbitmq className="w-4 h-4 text-orange-500" />, text: c("Spring.Integration") },
+      ],
     },
     {
       key: "Angular",
-      icon: <FaAngular className="w-10 h-10 text-red-500" />,
+      icon: <FaAngular className="w-8 h-8 text-red-600 dark:text-red-400" />,
       items: [
-        { icon: <Code className="w-4 h-4 text-red-500" />, text: c("Angular.components") },
-        { icon: <Cog className="w-4 h-4 text-blue-500" />, text: c("Angular.services") },
-        { icon: <TerminalSquare className="w-4 h-4 text-yellow-500" />, text: c("Angular.pipes") },
-        { icon: <Network className="w-4 h-4 text-green-500" />, text: c("Angular.interceptors") },
-        { icon: <Server className="w-4 h-4 text-purple-500" />, text: c("Angular.routing") }
-      ]
+        { icon: <Code className="w-4 h-4 text-primary" />, text: c("Angular.components") },
+        { icon: <Cog className="w-4 h-4 text-primary" />, text: c("Angular.services") },
+        { icon: <TerminalSquare className="w-4 h-4 text-primary" />, text: c("Angular.pipes") },
+        { icon: <Network className="w-4 h-4 text-primary" />, text: c("Angular.interceptors") },
+        { icon: <Server className="w-4 h-4 text-primary" />, text: c("Angular.routing") },
+      ],
     },
     {
       key: "Database",
-      icon: <Database className="w-10 h-10 text-blue-500" />,
+      icon: <Database className="w-8 h-8 text-primary" />,
       items: [
-        { icon: <SiPostgresql className="w-4 h-4 text-blue-600" />, text: c("Database.postgre") },
-        { icon: <SiMysql className="w-4 h-4 text-blue-500" />, text: c("Database.mysql") },
-        { icon: <Server className="w-4 h-4 text-gray-500" />, text: c("Database.sqlserver") },
-        { icon: <Cpu className="w-4 h-4 text-blue-500" />, text: c("Database.Optimization") },
-        { icon: <SiRedis className="w-4 h-4 text-red-500" />, text: c("Database.migrations") }
-      ]
+        { icon: <SiPostgresql className="w-4 h-4 text-primary" />, text: c("Database.postgre") },
+        { icon: <SiMysql className="w-4 h-4 text-primary" />, text: c("Database.mysql") },
+        { icon: <Server className="w-4 h-4 text-primary" />, text: c("Database.sqlserver") },
+        { icon: <Cpu className="w-4 h-4 text-primary" />, text: c("Database.Optimization") },
+        { icon: <SiRedis className="w-4 h-4 text-red-500" />, text: c("Database.migrations") },
+      ],
     },
     {
       key: "DevOps",
-      icon: <FaDocker className="w-10 h-10 text-blue-400" />,
+      icon: <FaDocker className="w-8 h-8 text-sky-500" />,
       items: [
-        { icon: <FaDocker className="w-4 h-4 text-blue-400" />, text: c("DevOps.docker") },
-        { icon: <SiKubernetes className="w-4 h-4 text-blue-500" />, text: c("DevOps.kubernetes") },
-        { icon: <SiGithubactions className="w-4 h-4" />, text: c("DevOps.pipelines") },
-        { icon: <Cloud className="w-4 h-4 text-blue-500" />, text: c("DevOps.terraform") },
-        { icon: <Cpu className="w-4 h-4 text-green-500" />, text: c("DevOps.quality") }
-      ]
+        { icon: <FaDocker className="w-4 h-4 text-sky-500" />, text: c("DevOps.docker") },
+        { icon: <SiKubernetes className="w-4 h-4 text-primary" />, text: c("DevOps.kubernetes") },
+        { icon: <SiGithubactions className="w-4 h-4 text-primary" />, text: c("DevOps.pipelines") },
+        { icon: <Cloud className="w-4 h-4 text-primary" />, text: c("DevOps.terraform") },
+        { icon: <Cpu className="w-4 h-4 text-primary" />, text: c("DevOps.quality") },
+      ],
     },
     {
       key: "Architecture",
-      icon: <Cog className="w-10 h-10 text-yellow-500" />,
+      icon: <Cog className="w-8 h-8 text-amber-500" />,
       items: [
-        { icon: <SiGraphql className="w-4 h-4 text-pink-500" />, text: c("Architecture.RESTful") },
-        { icon: <Code className="w-4 h-4 text-blue-500" />, text: c("Architecture.microfrontends") },
-        { icon: <Network className="w-4 h-4 text-blue-500" />, text: c("Architecture.hexagonal") },
-        { icon: <Cloud className="w-4 h-4 text-blue-500" />, text: c("Architecture.Patterns") },
-        { icon: <SiRedis className="w-4 h-4 text-red-500" />, text: c("Architecture.catching") }
-      ]
+        { icon: <SiGraphql className="w-4 h-4 text-primary" />, text: c("Architecture.RESTful") },
+        { icon: <Code className="w-4 h-4 text-primary" />, text: c("Architecture.microfrontends") },
+        { icon: <Network className="w-4 h-4 text-primary" />, text: c("Architecture.hexagonal") },
+        { icon: <Cloud className="w-4 h-4 text-primary" />, text: c("Architecture.Patterns") },
+        { icon: <SiRedis className="w-4 h-4 text-red-500" />, text: c("Architecture.catching") },
+      ],
     },
   ];
 
   return (
-    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4">
-      {cardData.map((card) => (
-        <Card
-          key={card.key}
-          className="hover:shadow-lg transition-shadow duration-300 mb-4 sm:mb-6"
-        >
-          <CardHeader className="text-center">
-            <div className="flex justify-center">{card.icon}</div>
-            <CardTitle className="text-xl mt-2">
-              {c(`${card.key}.title`)}
-            </CardTitle>
-            <CardDescription>{c(`${card.key}.description`)}</CardDescription>
-          </CardHeader>
-          <CardContent className="px-4 sm:px-6 pb-6">
-            <ul className="space-y-3">
-              {card.items.map((item, index) => (
-                <li key={index} className="flex items-center gap-2">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cardData.map((card, index) => (
+          <motion.div
+            key={card.key}
+            {...fadeInUp}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="rounded-lg border bg-card text-card-foreground p-6 hover:shadow-md transition-shadow"
+          >
+            <div className="text-center mb-4">
+              <div className="flex justify-center mb-2">{card.icon}</div>
+              <h3 className="font-semibold text-lg">
+                {c(`${card.key}.title`)}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {c(`${card.key}.description`)}
+              </p>
+            </div>
+            <ul className="space-y-2.5">
+              {card.items.map((item, i) => (
+                <li
+                  key={i}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
                   {item.icon}
                   {item.text}
                 </li>
               ))}
             </ul>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
-};
+}
